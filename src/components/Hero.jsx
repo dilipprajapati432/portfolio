@@ -62,7 +62,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-background">
       {/* Dynamic Glow Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
@@ -79,7 +79,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-6"
           >
             <div className="space-y-4">
               <motion.div

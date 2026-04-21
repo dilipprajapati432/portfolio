@@ -60,7 +60,7 @@ export const Contact = () => {
       <div className="absolute bottom-[10%] left-[-10%] w-[40%] h-[40%] bg-accent/5 blur-[150px] rounded-full" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="h-[2px] w-12 bg-primary glow-cyan" />
@@ -75,11 +75,11 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
           
           {/* Left: Contact Info */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-6">
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -137,8 +137,8 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="lg:col-span-7 glass-card p-10 md:p-16 rounded-[3rem] border border-white/5 relative group"
           >
-            <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
-              <div className="grid md:grid-cols-2 gap-10">
+            <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-[10px] font-sans font-bold uppercase tracking-[0.4em] text-accent/60 ml-1">Identity</label>
                   <Input

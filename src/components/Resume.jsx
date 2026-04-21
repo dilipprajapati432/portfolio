@@ -52,7 +52,7 @@ export const Resume = () => {
   return (
     <section id="resume" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="h-[2px] w-12 bg-accent glow-cyan" />
@@ -74,9 +74,9 @@ export const Resume = () => {
           </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-16">
+        <div className="grid lg:grid-cols-12 gap-12">
           {/* Main Timeline */}
-          <div className="lg:col-span-8 space-y-20">
+          <div className="lg:col-span-8 space-y-16">
             {/* Education Section */}
             <div className="space-y-10">
                 <div className="flex items-center gap-4 text-accent/60">

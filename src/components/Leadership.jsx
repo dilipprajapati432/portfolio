@@ -32,7 +32,7 @@ export const Leadership = () => {
       <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[150px] rounded-full" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="h-[2px] w-12 bg-accent glow-cyan" />
@@ -47,9 +47,9 @@ export const Leadership = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Main Content: Projects */}
-          <div className="lg:col-span-8 space-y-12">
+          <div className="lg:col-span-8 space-y-8">
             {teamProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -86,7 +86,7 @@ export const Leadership = () => {
           </div>
 
           {/* Side Content */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 space-y-6">
             <motion.div 
                initial={{ opacity: 0, scale: 0.95 }}
                whileInView={{ opacity: 1, scale: 1 }}

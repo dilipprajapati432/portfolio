@@ -29,7 +29,7 @@ export const About = () => {
   return (
     <section id="about" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           
           {/* Bio Content */}
           <motion.div 
@@ -37,7 +37,7 @@ export const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/2 space-y-8"
+            className="lg:w-1/2 space-y-6"
           >
             <div className="space-y-4">
               <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
