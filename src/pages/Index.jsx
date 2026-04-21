@@ -62,7 +62,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background relative selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen bg-background relative selection:bg-primary/20 selection:text-primary overflow-x-hidden">
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
@@ -82,17 +82,17 @@ const Index = () => {
       <main className="relative z-10">
         <Hero />
         
-        <div className="space-y-20 md:space-y-32">
+        <div className="space-y-12 md:space-y-20">
           <section id="about" className="reveal">
             <About />
           </section>
           
-          <section id="skills" className="reveal">
-            <Skills />
-          </section>
-          
           <section id="resume" className="reveal">
             <Resume />
+          </section>
+          
+          <section id="skills" className="reveal">
+            <Skills />
           </section>
           
           <section id="projects" className="reveal">

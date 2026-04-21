@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const featuredProjects = [
   {
-    title: "ResumeIQ – AI ATS Optimizer",
+    title: "ResumeIQ – AI Resume Analyzer",
     category: "Intelligence",
-    description: "Full-stack ATS resume optimizer using React, Node.js, and Express. Integrated Gemini and Llama models for AI-based scoring, keyword analysis, and improvement tips.",
+    description: "Full-stack ATS resume analyzer using React, Node.js, and Express. Integrated Gemini and Llama models for AI-based scoring, keyword analysis, and improvement tips.",
     tags: ["React", "Node.js", "Express", "AI", "Gemini"],
     github: "https://github.com/dilipprajapati432/ResumeIQ-AI-ATS-Optimizer.git",
     demo: "https://resumeiqscan.vercel.app",

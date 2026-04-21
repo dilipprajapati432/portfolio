@@ -18,10 +18,10 @@ export const Footer = () => {
             <div className="space-y-6">
                <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-background text-xs font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)]">
-                    DK
+                    DP
                   </div>
                   <h2 className="text-3xl font-serif font-black tracking-tight text-foreground uppercase">
-                    DILIP<span className="gradient-text italic ml-2">KOHAR</span>
+                    DILIP<span className="gradient-text italic ml-2">PRAJAPATI</span>
                   </h2>
                </div>
               <p className="text-xs tracking-widest uppercase text-muted-foreground/80 leading-loose font-bold">
