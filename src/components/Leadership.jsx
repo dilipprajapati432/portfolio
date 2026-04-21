@@ -27,7 +27,7 @@ const qualities = [
 
 export const Leadership = () => {
   return (
-    <section id="leadership" className="section-padding bg-background relative overflow-hidden">
+    <section id="leadership" className="section-padding bg-transparent relative overflow-hidden">
       {/* Decorative backdrop */}
       <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[150px] rounded-full" />
       

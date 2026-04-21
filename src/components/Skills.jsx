@@ -34,7 +34,7 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="section-padding relative overflow-hidden bg-background">
+    <section id="skills" className="section-padding relative overflow-hidden bg-transparent">
       {/* Decorative backdrop */}
       <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full -z-0" />
       

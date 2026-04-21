@@ -9,7 +9,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative py-24 border-t border-white/5 bg-background overflow-hidden font-sans">
+    <footer className="relative py-12 border-t border-white/5 bg-transparent overflow-hidden font-sans">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-start justify-between gap-16">
           
@@ -80,7 +80,7 @@ export const Footer = () => {
         </div>
 
         {/* Global Footer Marker */}
-        <div className="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="mt-12 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-4">
                <span className="text-[9px] font-bold tracking-[0.6em] text-white/20 uppercase italic">Digital_Artifact_End // 2026</span>
                <div className="h-[1px] w-12 bg-white/10" />

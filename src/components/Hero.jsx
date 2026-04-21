@@ -68,7 +68,7 @@ export const Hero = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[120px] rounded-full animate-pulse delay-700" />
       </div>
-      
+
       <div className="noise-overlay" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -91,17 +91,17 @@ export const Hero = () => {
                 <div className="h-[2px] w-8 bg-accent glow-cyan" />
                 <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Available for Work</span>
               </motion.div>
-              
+
               <h1 className="text-6xl md:text-8xl font-serif font-bold text-foreground leading-[1.1] tracking-tight">
                 Dilip<br />
                 <span className="gradient-text italic">Kohar</span>
               </h1>
-              
+
               <TypewriterRoles />
             </div>
 
             <p className="text-muted-foreground/90 text-lg md:text-xl max-w-lg leading-relaxed font-light">
-              Crafting <span className="text-foreground font-medium italic">intelligent</span> digital experiences with 
+              Crafting <span className="text-foreground font-medium italic">intelligent</span> digital experiences with
               a focus on <span className="text-primary font-medium">Machine Learning</span> and <span className="text-accent font-medium">Modern Web Architectures</span>.
             </p>
 
@@ -169,9 +169,32 @@ export const Hero = () => {
               {/* Profile Wrapper */}
               <div
                 style={{ transform: "translateZ(50px)" }}
-                className="relative z-10 w-full h-full rounded-3xl overflow-hidden glass-card p-2 group cursor-none"
+                className="relative z-10 w-full h-full rounded-full glass-card p-2 group cursor-none"
               >
-                <div className="w-full h-full rounded-2xl overflow-hidden relative">
+                {/* Orbital Sparkles */}
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      rotate: [0, 360],
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.8, 0.3]
+                    }}
+                    transition={{
+                      rotate: { duration: 10 + i * 5, repeat: Infinity, ease: "linear" },
+                      scale: { duration: 2, repeat: Infinity, delay: i * 0.5 },
+                      opacity: { duration: 2, repeat: Infinity, delay: i * 0.5 }
+                    }}
+                    className="absolute inset-[-15px] pointer-events-none"
+                    style={{ rotate: i * 90 }}
+                  >
+                    <Sparkles
+                      className={`w-5 h-5 text-accent shadow-[0_0_15px_#22D3EE] absolute top-0 left-1/2 -translate-x-1/2`}
+                    />
+                  </motion.div>
+                ))}
+
+                <div className="w-full h-full rounded-full overflow-hidden relative">
                   <img
                     src={profileImage}
                     alt="Dilip Kohar"

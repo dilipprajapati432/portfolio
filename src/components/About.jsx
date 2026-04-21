@@ -27,7 +27,7 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-background relative overflow-hidden">
+    <section id="about" className="section-padding bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           

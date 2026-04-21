@@ -50,7 +50,7 @@ export const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="section-padding bg-background relative overflow-hidden">
+    <section id="resume" className="section-padding bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="space-y-4">

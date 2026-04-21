@@ -73,7 +73,16 @@ export const Projects = () => {
       viewport={{ once: true }}
       className="glass-card group rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-accent/30 flex flex-col shadow-2xl relative"
     >
-      <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[2rem]">
+      <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[2rem] group/img">
+        {/* Twinkling Sparkles on Image Corner */}
+        <motion.div 
+          animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.2, 1] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="absolute top-2 right-2 z-10 pointer-events-none"
+        >
+          <Sparkles className="w-4 h-4 text-accent/60" />
+        </motion.div>
+
         <img
           src={project.image}
           alt={project.title}
@@ -99,11 +108,11 @@ export const Projects = () => {
             <ExternalLink className="w-6 h-6 text-white" />
           </motion.a>
         </div>
-        
+
         <div className="absolute top-4 left-4">
-            <span className="text-[10px] font-sans font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md bg-accent/5 text-accent/90 border-accent/30">
-                {project.category}
-            </span>
+          <span className="text-[10px] font-sans font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md bg-accent/5 text-accent/90 border-accent/30">
+            {project.category}
+          </span>
         </div>
       </div>
 
@@ -149,25 +158,25 @@ export const Projects = () => {
     >
       <div className="space-y-4">
         <div className="flex justify-between items-start">
-             <div className="p-2.5 bg-white/5 rounded-xl text-primary group-hover:text-accent transition-colors">
-                <Code2 className="w-5 h-5" />
-             </div>
-            <div className="flex gap-3">
-                <a href={project.github} target="_blank" className="p-2 bg-white/5 rounded-lg text-muted-foreground/60 hover:text-accent hover:bg-accent/20 transition-all">
-                    <Github className="w-4 h-4" />
-                </a>
-                <a href={project.demo} target="_blank" className="p-2 bg-white/5 rounded-lg text-muted-foreground/60 hover:text-accent hover:bg-accent/20 transition-all">
-                    <ExternalLink className="w-4 h-4" />
-                </a>
-            </div>
+          <div className="p-2.5 bg-white/5 rounded-xl text-primary group-hover:text-accent transition-colors">
+            <Code2 className="w-5 h-5" />
+          </div>
+          <div className="flex gap-3">
+            <a href={project.github} target="_blank" className="p-2 bg-white/5 rounded-lg text-muted-foreground/60 hover:text-accent hover:bg-accent/20 transition-all">
+              <Github className="w-4 h-4" />
+            </a>
+            <a href={project.demo} target="_blank" className="p-2 bg-white/5 rounded-lg text-muted-foreground/60 hover:text-accent hover:bg-accent/20 transition-all">
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
         </div>
         <div>
-            <h4 className="text-xl font-serif font-bold text-foreground group-hover:text-accent transition-colors mb-2 leading-tight">
-                {project.title}
-            </h4>
-            <p className="text-sm text-muted-foreground/90 leading-relaxed line-clamp-2 font-light">
-                {project.description}
-            </p>
+          <h4 className="text-xl font-serif font-bold text-foreground group-hover:text-accent transition-colors mb-2 leading-tight">
+            {project.title}
+          </h4>
+          <p className="text-sm text-muted-foreground/90 leading-relaxed line-clamp-2 font-light">
+            {project.description}
+          </p>
         </div>
       </div>
 
@@ -182,7 +191,7 @@ export const Projects = () => {
   );
 
   return (
-    <section id="projects" className="section-padding relative overflow-hidden bg-background">
+    <section id="projects" className="section-padding relative overflow-hidden bg-transparent">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="space-y-4">
@@ -194,7 +203,7 @@ export const Projects = () => {
               Featured <span className="gradient-text italic">Intelligence</span>
             </h2>
           </div>
-          
+
           <p className="text-muted-foreground/90 max-w-sm text-sm font-light leading-relaxed">
             High-impact systems bridging AI research with production-grade engineering.
           </p>
@@ -207,15 +216,15 @@ export const Projects = () => {
         </div>
 
         <div className="space-y-12">
-            <div className="flex items-center gap-4 mb-4">
-                    <FolderCode className="w-5 h-5 text-accent/90" />
-                    <h3 className="text-xs font-sans tracking-[0.4em] uppercase font-bold text-accent/90">Other Projects</h3>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {secondaryProjects.map((project, index) => (
-                    <SmallProjectCard key={index} project={project} index={index} />
-                ))}
-            </div>
+          <div className="flex items-center gap-4 mb-4">
+            <FolderCode className="w-5 h-5 text-accent/90" />
+            <h3 className="text-xs font-sans tracking-[0.4em] uppercase font-bold text-accent/90">Other Projects</h3>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {secondaryProjects.map((project, index) => (
+              <SmallProjectCard key={index} project={project} index={index} />
+            ))}
+          </div>
         </div>
       </div>
 

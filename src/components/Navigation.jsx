@@ -69,7 +69,7 @@ export const Navigation = () => {
         <div 
           className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${
             isScrolled 
-              ? "glass-card bg-slate-900/60 border-white/5 shadow-2xl" 
+              ? "glass-card bg-[#020617]/60 border-white/5 shadow-2xl" 
               : "bg-transparent"
           }`}
         >
@@ -145,7 +145,7 @@ export const Navigation = () => {
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             className="fixed inset-x-6 top-24 z-[100] md:hidden"
           >
-            <div className="glass-card bg-slate-900/90 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="glass-card bg-[#020617]/90 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               <div className="flex flex-col space-y-6">
                 {navItems.map((item) => (
                   <button
