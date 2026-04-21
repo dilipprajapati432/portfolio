@@ -9,101 +9,91 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative py-24 border-t border-white/5 overflow-hidden bg-white/[0.01]">
-      {/* Animated Background Laser Lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={{ x: [-500, 500], opacity: [0, 1, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" 
-        />
-        <motion.div 
-          animate={{ x: [500, -500], opacity: [0, 1, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear", delay: 2 }}
-          className="absolute bottom-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/20 to-transparent" 
-        />
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-10" />
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-secondary/10 via-transparent to-transparent opacity-10" />
-      </div>
-
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16">
+    <footer className="relative py-24 border-t border-white/5 bg-background overflow-hidden font-sans">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-16">
           
-          {/* Left: Identity & Status */}
-          <div className="space-y-6 text-center md:text-left">
-            <div className="space-y-2">
-              <h2 className="text-4xl font-black bg-gradient-to-r from-[#ff0000] via-[#00ffff] to-[#8b00ff] bg-clip-text text-transparent tracking-tighter leading-none animate-pulse">
-                DILIP_PRAJAPATI
-              </h2>
-              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/40">Personal_Portfolio_v2.0</p>
-            </div>
-            
-            <div className="flex items-center justify-center md:justify-start gap-4">
-               <div className="flex items-center gap-2 px-3 py-1 bg-primary/5 border border-primary/20 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_12px_#00ffff]" />
-                  <span className="text-[8px] font-black uppercase tracking-widest text-primary/80">Status: Operational</span>
+          {/* Identity & Status */}
+          <div className="space-y-8 max-w-sm">
+            <div className="space-y-6">
+               <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-background text-xs font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)]">
+                    DK
+                  </div>
+                  <h2 className="text-3xl font-serif font-black tracking-tight text-foreground uppercase">
+                    DILIP<span className="gradient-text italic ml-2">KOHAR</span>
+                  </h2>
                </div>
-               <span className="text-[10px] font-medium text-muted-foreground/30 italic">© {currentYear}</span>
+              <p className="text-xs tracking-widest uppercase text-muted-foreground/40 leading-loose font-bold">
+                Synthesizing high-performance architectures through precision engineering.
+              </p>
             </div>
-          </div>
-
-          {/* Center: Social Core with Multi-Color Glows */}
-          <div className="relative">
-            <div className="absolute inset-[-40px] bg-primary/5 blur-3xl rounded-full -z-10" />
             
-            <div className="flex gap-6">
-               {[
-                 { icon: Github, href: "https://github.com/dilipprajapati432", label: "GIT", glow: "group-hover:shadow-[0_0_25px_rgba(0,255,255,0.4)]", border: "group-hover:border-primary/50" },
-                 { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293", label: "LNK", glow: "group-hover:shadow-[0_0_25px_rgba(139,0,255,0.4)]", border: "group-hover:border-secondary/50" },
-                 { icon: Mail, href: "mailto:dilipkohar4320@gmail.com", label: "MAI", glow: "group-hover:shadow-[0_0_25px_rgba(0,255,127,0.4)]", border: "group-hover:border-accent/50" }
-               ].map((social, i) => (
-                 <motion.a 
-                   key={i}
-                   whileHover={{ y: -8 }}
-                   href={social.href} 
-                   target="_blank"
-                   className="group flex flex-col items-center gap-3"
-                 >
-                    <div className={`w-14 h-14 glass-card rounded-2xl flex items-center justify-center border-white/5 ${social.border} ${social.glow} transition-all duration-500`}>
-                       <social.icon className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
-                    </div>
-                    <span className="text-[9px] font-black tracking-[0.3em] text-muted-foreground/30 group-hover:text-primary transition-colors">{social.label}</span>
-                 </motion.a>
-               ))}
+            <div className="flex items-center gap-8">
+                <div className="flex items-center gap-3">
+                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                   <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">System_Active</span>
+                </div>
+                <span className="text-[10px] text-muted-foreground/20 font-bold tracking-widest">© {currentYear} // v2.0.4</span>
             </div>
           </div>
 
-          {/* Right: Technical Specs & Back to Top */}
-          <div className="flex flex-col items-center md:items-end gap-6">
-             <div className="flex flex-col items-center md:items-end gap-2">
-                <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
-                   <Cpu className="w-3 h-3 animate-spin-slow" /> Engineered_With_Precision
+          {/* Social Nodes */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+             {[
+               { icon: Github, href: "https://github.com/dilipprajapati432", label: "Source" },
+               { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293", label: "Connect" },
+               { icon: Mail, href: "mailto:dilipkohar4320@gmail.com", label: "Relay" }
+             ].map((s, i) => (
+               <motion.a key={i} whileHover={{ x: 5 }} href={s.href} target="_blank"
+                 className="group flex flex-col gap-3">
+                  <span className="text-[10px] font-bold tracking-[0.3em] text-muted-foreground/20 group-hover:text-accent transition-colors uppercase">{s.label}</span>
+                  <div className="flex items-center gap-4">
+                     <s.icon className="w-5 h-5 text-muted-foreground/40 group-hover:text-accent transition-colors" />
+                     <div className="h-[1px] w-0 group-hover:w-10 bg-accent/40 transition-all duration-500" />
+                  </div>
+               </motion.a>
+             ))}
+          </div>
+
+          {/* Precision Stats */}
+          <div className="flex flex-col items-end gap-8">
+             <div className="text-right space-y-3">
+                <div className="flex items-center justify-end gap-3 text-accent font-bold text-[10px] uppercase tracking-[0.4em]">
+                   <Cpu className="w-3 h-3" /> Technical_Verified
                 </div>
-                <p className="text-[10px] text-muted-foreground/60 font-medium">
-                  React 18.3 • Framer Motion • Tailwind CSS
-                </p>
+                <div className="flex gap-4 opacity-20 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+                    <span className="text-[10px] font-bold text-foreground">Playfair</span>
+                    <span className="text-[10px] font-bold text-foreground">Inter</span>
+                </div>
              </div>
 
-             <motion.button
-               whileHover={{ scale: 1.1 }}
-               whileTap={{ scale: 0.9 }}
-               onClick={scrollToTop}
-               className="group flex items-center gap-3 px-6 py-3 glass-card rounded-2xl border-white/5 hover:border-primary/30 transition-all hover:shadow-[0_0_20px_rgba(0,255,255,0.1)]"
+             <motion.button 
+               onClick={scrollToTop} 
+               whileHover={{ y: -8, scale: 1.05 }} 
+               whileTap={{ scale: 0.95 }}
+               className="h-16 w-16 glass-card rounded-2xl flex items-center justify-center border border-white/5 hover:border-accent group transition-all duration-500"
              >
-                <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">Back_to_Top</span>
-                <ArrowUp className="w-4 h-4 text-primary group-hover:animate-bounce" />
+                <ArrowUp className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
              </motion.button>
           </div>
-
         </div>
 
-        {/* Bottom Abstract Decoration */}
-        <div className="mt-20 flex items-center gap-8">
-           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-secondary/30" />
-           <Sparkles className="w-4 h-4 text-primary/30 animate-pulse" />
-           <div className="h-px flex-1 bg-gradient-to-l from-transparent via-primary/30 to-secondary/30" />
+        {/* Global Footer Marker */}
+        <div className="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+           <div className="flex items-center gap-4">
+               <span className="text-[9px] font-bold tracking-[0.6em] text-white/5 uppercase italic">Digital_Artifact_End // 2026</span>
+               <div className="h-[1px] w-12 bg-white/5" />
+               <Sparkles className="w-3 h-3 text-white/5" />
+           </div>
+           
+           <p className="text-[9px] font-bold tracking-[0.3em] text-white/5 uppercase">
+             Designed with Precision & Intent
+           </p>
         </div>
       </div>
     </footer>
   );
 };
+
+

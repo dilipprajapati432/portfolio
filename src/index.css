@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 230 35% 3%;
-    --foreground: 210 40% 98%;
+    --background: 222 47% 11%;
+    --foreground: 213 27% 84%;
 
-    --card: 230 35% 4%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 47% 13%;
+    --card-foreground: 213 27% 84%;
 
-    --popover: 230 35% 4%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 213 27% 84%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 230 35% 3%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 260 85% 65%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 213 27% 84%;
 
-    --muted: 230 20% 12%;
-    --muted-foreground: 215 20% 70%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 190 100% 50%;
-    --accent-foreground: 230 35% 3%;
+    --accent: 189 94% 47%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 230 20% 12%;
-    --input: 230 20% 12%;
-    --ring: 180 100% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
   }
@@ -38,52 +38,71 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-primary/20 selection:text-primary;
+    @apply border-border selection:bg-primary/20 selection:text-accent;
   }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    @apply bg-background text-foreground antialiased font-sans transition-colors duration-500;
+    background-color: #0F172A;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.05) 0px, transparent 50%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-2xl;
+    @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 hover:border-accent/30 transition-all duration-500 ease-out;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glow-cyan {
+    @apply shadow-[0_0_20px_rgba(34,211,238,0.2)];
+  }
+
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6;
+  }
+
+  .bento-item {
+    @apply glass-card p-8 rounded-3xl overflow-hidden relative;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-200 to-cyan-400;
   }
 
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-16 md:py-20;
   }
 
-  .heading-xl {
-    @apply text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase italic;
-  }
-
-  .heading-lg {
-    @apply text-3xl md:text-5xl font-black tracking-tighter mb-4 uppercase;
+  .nav-blur {
+    @apply bg-background/60 backdrop-blur-2xl border-b border-white/5;
   }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.reveal {
+.scroll-reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s ease-out;
+  animation: scroll-fade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes scroll-fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+

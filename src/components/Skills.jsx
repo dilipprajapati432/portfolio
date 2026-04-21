@@ -1,70 +1,57 @@
-import { Code, Database, Brain, Users2 } from "lucide-react";
+import { Code, Database, Brain, Users2, Cpu, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Web Development",
+      title: "Frontend Engineering",
       icon: Code,
-      color: "text-primary",
-      description: "Building responsive, interactive, and performant user interfaces",
-      skills: ["React.js", "HTML5 & CSS3", "JavaScript ES6+", "Tailwind CSS", "Responsive Design", "UI/UX Implementation"],
-      proficiency: 85,
+      accent: "text-primary",
+      skills: ["React.js", "JavaScript ES6+", "Tailwind CSS", "Vite", "Framer Motion", "Responsive Design"],
+      proficiency: 90,
     },
     {
       title: "Backend Development",
       icon: Database,
-      color: "text-accent",
-      description: "Server-side logic, database design, and API development",
-      skills: ["Flask", "Python", "MySQL", "REST APIs", "Database Design", "Authentication"],
+      accent: "text-accent",
+      skills: ["Flask", "Python", "MySQL", "REST APIs", "Auth-Flow", "Architecture"],
       proficiency: 75,
     },
     {
       title: "AI & Data Science",
       icon: Brain,
-      color: "text-primary",
-      description: "Exploring machine learning concepts and intelligent systems",
-      skills: ["Python", "TensorFlow Basics", "Data Analysis", "ML Concepts", "AI Ethics", "Problem Solving"],
-      proficiency: 70,
+      accent: "text-primary",
+      skills: ["ML Theory", "TensorFlow", "Computer Vision", "Data Analysis", "Python", "AI Ethics"],
+      proficiency: 80,
     },
     {
-      title: "Leadership & Teamwork",
+      title: "Soft Skills",
       icon: Users2,
-      color: "text-accent",
-      description: "Collaborative development and project management",
-      skills: ["Team Collaboration", "Project Coordination", "Agile Methodology", "Code Reviews", "Mentoring", "Communication"],
-      proficiency: 80,
+      accent: "text-accent",
+      skills: ["Team Leadership", "Communication", "Agile", "Problem Solving", "Mentoring", "Git"],
+      proficiency: 85,
     },
   ];
 
   return (
-    <section id="skills" className="section-padding bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-heading font-bold gradient-text mb-4"
-          >
-            Advanced Skill Development
-          </motion.h2>
-          <motion.div 
-            initial={{ width: 0 }}
-            whileInView={{ width: "96px" }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"
-          />
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            viewport={{ once: true }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-          >
-            Continuously developing technical expertise and professional competencies
-          </motion.p>
+    <section id="skills" className="section-padding relative overflow-hidden bg-background">
+      {/* Decorative backdrop */}
+      <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full -z-0" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="h-[2px] w-12 bg-accent glow-cyan" />
+              <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Capabilities</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
+              Technical <span className="gradient-text italic">Matrix</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground/60 max-w-sm text-sm font-light leading-relaxed">
+            Continuously evolving through high-impact research, development cycles, and technical exploration.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -75,82 +62,80 @@ export const Skills = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="glass-card p-8 rounded-xl hover:scale-[1.02] transition-all duration-300 border border-white/5 hover:border-primary/20 group"
+                className="glass-card p-10 rounded-[2.5rem] border border-white/5 hover:border-accent/20 group transition-all duration-500"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg group-hover:from-primary/30 group-hover:to-accent/30 transition-all">
-                    <Icon className={`h-8 w-8 ${category.color}`} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-heading font-bold text-foreground mb-2">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{category.description}</p>
+                <div className="flex items-start justify-between mb-8">
+                  <div className="flex gap-5">
+                    <div className="p-4 bg-white/5 rounded-2xl group-hover:bg-accent/10 transition-colors duration-500">
+                      <Icon className={`h-8 w-8 ${category.accent} group-hover:scale-110 transition-transform`} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-serif font-bold text-foreground group-hover:text-accent transition-colors">
+                        {category.title}
+                      </h3>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-[10px] font-sans tracking-[0.2em] text-muted-foreground uppercase">Expertise</span>
+                        <div className="h-[1px] w-4 bg-white/10" />
+                        <span className="text-[10px] font-sans text-accent font-bold">{category.proficiency}%</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-foreground">Proficiency Level</span>
-                    <span className="text-sm font-bold text-accent">{category.proficiency}%</span>
-                  </div>
-                  <div className="h-3 bg-secondary/50 rounded-full overflow-hidden">
+                <div className="space-y-6">
+                  <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${category.proficiency}%` }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+                      transition={{ duration: 1.5, ease: "circOut", delay: 0.5 }}
                       viewport={{ once: true }}
-                      className="h-full bg-gradient-to-r from-primary to-accent"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1.5 text-xs font-medium bg-secondary/30 text-foreground rounded-lg border border-white/5 hover:bg-primary/10 hover:border-primary/20 transition-all"
+                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full relative"
                     >
-                      {skill}
-                    </span>
-                  ))}
+                      <div className="absolute top-0 right-0 w-2 h-full bg-white/40 blur-[2px]" />
+                    </motion.div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {category.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="px-4 py-2 text-[10px] font-sans font-bold uppercase tracking-widest bg-white/[0.03] text-muted-foreground/80 rounded-xl border border-white/5 hover:border-accent/40 hover:text-accent hover:bg-accent/5 transition-all duration-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Additional Skills Section */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="mt-16 glass-card p-8 rounded-xl border border-white/5"
-        >
-          <h3 className="text-2xl font-heading font-bold text-center mb-8">
-            Additional Competencies
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { label: "Projects Completed", value: "5+", color: "text-primary" },
-              { label: "Certifications Earned", value: "4+", color: "text-accent" },
-              { label: "Academic CGPA", value: "7.49", color: "text-primary" }
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="glass-card p-6 rounded-lg mb-3 border border-white/5 hover:border-primary/10 transition-colors">
-                  <p className={`text-3xl font-bold ${stat.color} mb-1`}>{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Global Stats Footer */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+           {[
+             { label: "Systems Built", value: "10+", icon: Cpu },
+             { label: "Research Nodes", value: "3", icon: Brain },
+             { label: "Global Reach", value: "India", icon: Globe },
+             { label: "Code Coverage", value: "90%", icon: Code }
+           ].map((stat, i) => (
+             <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + (i * 0.1) }}
+                className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center space-y-2 group"
+             >
+                <stat.icon className="w-5 h-5 text-accent/40 group-hover:text-accent transition-colors" />
+                <div className="text-xl font-serif font-black text-foreground">{stat.value}</div>
+                <div className="text-[9px] font-sans tracking-[0.3em] uppercase text-muted-foreground/50">{stat.label}</div>
+             </motion.div>
+           ))}
+        </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none" />
     </section>
   );
-};
+};

@@ -6,11 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Resume", href: "#resume" },
-  { label: "Projects", href: "#projects" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Contact", href: "#contact" },
+  { label: "Matrix", href: "#skills" },
+  { label: "Project", href: "#projects" },
+  { label: "Timeline", href: "#resume" },
+  { label: "Impact", href: "#leadership" },
+  { label: "Connect", href: "#contact" },
 ];
 
 export const Navigation = () => {
@@ -20,9 +20,8 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
 
-      // Simple active section detection
       const sections = navItems.map((item) => item.href.substring(1));
       let currentSection = "hero";
 
@@ -30,7 +29,7 @@ export const Navigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 150 && rect.bottom >= 150) {
             currentSection = section;
             break;
           }
@@ -47,9 +46,7 @@ export const Navigation = () => {
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
@@ -62,62 +59,80 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
+          ? "py-4"
+          : "py-8"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("#hero");
-          }}
-          className="text-2xl font-black gradient-text tracking-tighter"
+      <div className="container mx-auto px-6">
+        <div 
+          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${
+            isScrolled 
+              ? "glass-card bg-slate-900/60 border-white/5 shadow-2xl" 
+              : "bg-transparent"
+          }`}
         >
-          DP
-        </a>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href.substring(1);
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href);
-                }}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors relative group ${
-                  isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {item.label}
-                {isActive && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary"
-                  />
-                )}
-              </a>
-            );
-          })}
-        </div>
-
-        {/* Mobile menu button */}
-        <div className="md:hidden">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-foreground"
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("#hero");
+            }}
+            className="text-2xl font-serif font-black flex items-center gap-2 group"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-background text-sm font-sans font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)] group-hover:scale-110 transition-transform">
+              DK
+            </div>
+            <span className="gradient-text tracking-tighter">Dilip</span>
+          </a>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-2">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-4 py-2 text-[10px] font-sans font-bold uppercase tracking-[0.2em] transition-all relative group ${
+                    isActive ? "text-accent" : "text-muted-foreground/60 hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-glow"
+                      className="absolute inset-0 bg-accent/5 rounded-lg -z-10 blur-sm"
+                    />
+                  )}
+                  <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-accent transition-all duration-300 ${isActive ? 'w-4' : 'w-0'}`} />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Contact Button */}
+          <div className="hidden md:block">
+            <Button 
+                onClick={() => scrollToSection("#contact")}
+                className="bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 rounded-xl px-6 font-sans text-[10px] font-bold uppercase tracking-widest transition-all"
+            >
+                Let's Talk
+            </Button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-foreground hover:bg-white/5 rounded-xl"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -125,29 +140,30 @@ export const Navigation = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-white/5 overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            className="fixed inset-x-6 top-24 z-[100] md:hidden"
           >
-            <div className="flex flex-col p-6 space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`text-sm font-bold uppercase tracking-widest ${
-                    activeSection === item.href.substring(1)
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
+            <div className="glass-card bg-slate-900/90 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="flex flex-col space-y-6">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href)}
+                    className="flex items-center justify-between group"
+                  >
+                    <span className={`text-lg font-serif font-bold ${
+                      activeSection === item.href.substring(1) ? "text-accent" : "text-muted-foreground"
+                    }`}>
+                      {item.label}
+                    </span>
+                    <div className={`h-[1px] flex-1 mx-4 bg-white/5 transition-all ${
+                      activeSection === item.href.substring(1) ? "bg-accent/40 mr-0" : ""
+                    }`} />
+                  </button>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
@@ -155,3 +171,4 @@ export const Navigation = () => {
     </nav>
   );
 };
+

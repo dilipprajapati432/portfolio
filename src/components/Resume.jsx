@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Award, Download, ExternalLink } from "lucide-react";
+import { GraduationCap, Briefcase, Award, Download, ArrowUpRight, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import javaCert from "@/assets/Java_Certificate.pdf";
@@ -12,18 +12,16 @@ export const Resume = () => {
     {
       degree: "B.Tech in Computer Science & Engineering",
       institution: "Pandit Deendayal Energy University (PDEU)",
-      location: "Gandhinagar, Gujarat, India",
-      duration: "2023 - 2027",
+      location: "India",
+      duration: "2023 — 2027",
       grade: "7.5 CGPA",
-      current: true,
     },
     {
       degree: "Higher Secondary Education",
       institution: "Siddhartha English Boarding School",
-      location: "Butwal, Rupandehi, Nepal",
-      duration: "2019 - 2021",
+      location: "Nepal",
+      duration: "2019 — 2021",
       grade: "3.19 GPA",
-      current: false,
     },
   ];
 
@@ -31,166 +29,157 @@ export const Resume = () => {
     {
       title: "Web Developer Intern",
       company: "InternPe",
-      location: "Remote",
-      duration: "Aug 2024 - Sep 2024",
-      responsibilities: [
-        "Focused on creating responsive web pages and refining user interfaces.",
-        "Implemented frontend components using modern React patterns.",
-        "Collaborated on improving site performance and accessibility.",
-      ],
+      duration: "Aug 2024 — Sep 2024",
+      details: "Engineered responsive frontend architectures and optimized cross-browser UI/UX dynamics.",
     },
+  ];
+
+  const coreCoursework = [
+    "Object Oriented Programming",
+    "Data Structures & Algorithms",
+    "Operating Systems",
+    "Database Management Systems",
+    "Computer Organization",
+    "AI Foundations",
   ];
 
   const certifications = [
     { name: "Java Programming", issuer: "LearnTube", year: "2024", link: javaCert },
-    { name: "AI Essentials Workshop", issuer: "PDEU", year: "2024", link: aiCert },
-    { name: "Web Development Bootcamp", issuer: "ACM-PDEU", year: "2023", link: webCert },
-    { name: "Ethical Hacking Workshop", issuer: "IEEE PDEU", year: "2024", link: hackCert },
+    { name: "AI Essentials", issuer: "PDEU", year: "2024", link: aiCert },
+    { name: "Web Development", issuer: "ACM-PDEU", year: "2023", link: webCert },
   ];
 
   return (
-    <section id="resume" className="section-padding relative">
-      <div className="container mx-auto px-6">
-        <div className="mb-16">
-          <h2 className="heading-lg">RESUME</h2>
-          <div className="h-1 w-20 bg-primary" />
+    <section id="resume" className="section-padding bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="h-[2px] w-12 bg-accent glow-cyan" />
+              <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Experience</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
+              Career <span className="gradient-text italic">Timeline</span>
+            </h2>
+          </div>
+          
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+                onClick={() => window.open(resumeFile, "_blank")}
+                className="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 rounded-xl px-8 py-6 gap-3 transition-all"
+            >
+                <Download className="w-5 h-5 text-accent" />
+                <span className="text-xs uppercase tracking-widest font-bold">Download CV</span>
+            </Button>
+          </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Education & Experience */}
-          <div className="space-y-12">
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-white/5 rounded-xl text-primary">
-                  <GraduationCap className="w-6 h-6" />
+        <div className="grid lg:grid-cols-12 gap-16">
+          {/* Main Timeline */}
+          <div className="lg:col-span-8 space-y-20">
+            {/* Education Section */}
+            <div className="space-y-10">
+                <div className="flex items-center gap-4 text-accent/60">
+                    <GraduationCap className="w-5 h-5" />
+                    <h3 className="text-xs font-sans tracking-[0.3em] uppercase font-bold">Education</h3>
                 </div>
-                <h3 className="text-2xl font-bold italic tracking-tight uppercase">Academic Journey</h3>
-              </div>
-
-              <div className="space-y-8 relative pl-8 border-l border-white/10 ml-6">
-                {education.map((edu, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative"
-                  >
-                    <div className="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-background border-2 border-primary shadow-[0_0_10px_rgba(0,255,255,0.5)]" />
-                    <div className="glass-card p-6 rounded-2xl border-white/5 hover:border-primary/20 transition-all">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="text-xl font-bold">{edu.degree}</h4>
-                        <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-                          {edu.duration}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground font-medium mb-4">{edu.institution}</p>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground/60">
-                        <span>{edu.location}</span>
-                        <div className="w-1 h-1 rounded-full bg-white/20" />
-                        <span className="text-primary font-bold">{edu.grade}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                <div className="space-y-12 border-l-2 border-white/5 pl-8 ml-2">
+                    {education.map((edu, i) => (
+                    <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="relative"
+                    >
+                        <div className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-accent glow-cyan" />
+                        <div className="glass-card p-8 rounded-3xl border border-white/5 space-y-4">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <h4 className="text-2xl font-serif font-bold text-foreground">{edu.degree}</h4>
+                                <span className="text-xs font-sans text-accent bg-accent/10 px-3 py-1 rounded-full">{edu.duration}</span>
+                            </div>
+                            <p className="text-muted-foreground/80 font-light">{edu.institution} // {edu.location}</p>
+                            <div className="pt-4 border-t border-white/5">
+                                <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-muted-foreground/40 font-bold">Grade: {edu.grade}</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                    ))}
+                </div>
             </div>
 
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-white/5 rounded-xl text-secondary">
-                  <Briefcase className="w-6 h-6" />
+            {/* Experience Section */}
+            <div className="space-y-10">
+                <div className="flex items-center gap-4 text-primary/60">
+                    <Briefcase className="w-5 h-5" />
+                    <h3 className="text-xs font-sans tracking-[0.3em] uppercase font-bold">Experience</h3>
                 </div>
-                <h3 className="text-2xl font-bold italic tracking-tight uppercase">Experience</h3>
-              </div>
-
-              <div className="space-y-8 relative pl-8 border-l border-white/10 ml-6">
-                {experience.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative"
-                  >
-                    <div className="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-background border-2 border-secondary shadow-[0_0_10px_rgba(255,0,255,0.5)]" />
-                    <div className="glass-card p-6 rounded-2xl border-white/5 hover:border-secondary/20 transition-all">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="text-xl font-bold">{exp.title}</h4>
-                        <span className="text-[10px] font-mono font-bold text-secondary bg-secondary/10 px-2 py-1 rounded">
-                          {exp.duration}
-                        </span>
-                      </div>
-                      <p className="text-secondary font-medium mb-4">{exp.company}</p>
-                      <ul className="space-y-2">
-                        {exp.responsibilities.map((resp, i) => (
-                          <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0" />
-                            {resp}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                <div className="space-y-12 border-l-2 border-white/5 pl-8 ml-2">
+                    {experience.map((exp, i) => (
+                    <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="relative"
+                    >
+                        <div className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary" />
+                        <div className="glass-card p-8 rounded-3xl border border-white/5 space-y-4">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <h4 className="text-2xl font-serif font-bold text-foreground">{exp.title}</h4>
+                                <span className="text-xs font-sans text-primary bg-primary/10 px-3 py-1 rounded-full">{exp.duration}</span>
+                            </div>
+                            <p className="text-accent text-sm font-medium uppercase tracking-widest">{exp.company}</p>
+                            <p className="text-muted-foreground/70 text-sm leading-relaxed font-light">{exp.details}</p>
+                        </div>
+                    </motion.div>
+                    ))}
+                </div>
             </div>
           </div>
 
-          {/* Certifications & Skills */}
-          <div className="space-y-12">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-white/5 rounded-xl text-accent">
-                <Award className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold italic tracking-tight uppercase">Certifications</h3>
+          {/* Side Info */}
+          <div className="lg:col-span-4 space-y-16">
+            {/* Certifications */}
+            <div className="space-y-10">
+                <div className="flex items-center gap-4 text-accent/60">
+                    <Award className="w-5 h-5" />
+                    <h3 className="text-xs font-sans tracking-[0.3em] uppercase font-bold">Certifications</h3>
+                </div>
+                <div className="space-y-4">
+                    {certifications.map((cert, i) => (
+                    <motion.a 
+                        key={i} 
+                        href={cert.link} 
+                        target="_blank"
+                        whileHover={{ x: 5 }}
+                        className="glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group"
+                    >
+                        <div className="space-y-1">
+                            <h5 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
+                            <p className="text-[10px] text-muted-foreground/40 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
+                        </div>
+                        <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-accent transition-all" />
+                    </motion.a>
+                    ))}
+                </div>
             </div>
 
-            <div className="grid gap-6">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-6 rounded-2xl border-white/5 hover:border-accent/40 transition-all flex items-center justify-between group"
-                >
-                  <div className="space-y-1 text-left">
-                    <h4 className="text-lg font-bold group-hover:text-accent transition-colors">{cert.name}</h4>
-                    <p className="text-xs text-muted-foreground italic">{cert.issuer} • {cert.year}</p>
-                  </div>
-                  <motion.a
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    href={cert.link}
-                    target="_blank"
-                    className="p-3 bg-white/5 rounded-full text-muted-foreground hover:text-accent transition-colors border border-white/10 hover:border-accent/30"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </motion.a>
-                </motion.div>
-              ))}
-            </div>
-            
-            <div className="relative glass-card p-8 rounded-3xl border-primary/20 bg-gradient-to-br from-primary/5 to-transparent flex flex-col items-center text-center gap-6 overflow-hidden">
-               <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-primary mb-2 shadow-2xl">
-                  <Download className="w-8 h-8" />
-               </div>
-               <div className="space-y-2">
-                 <h4 className="text-xl font-bold tracking-tight uppercase">Need a physical copy?</h4>
-                 <p className="text-sm text-muted-foreground">My full technological dossier is available in PDF format.</p>
-               </div>
-               <Button 
-                onClick={() => window.open(resumeFile, "_blank")}
-                className="w-full bg-primary text-primary-foreground font-bold hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all"
-               >
-                 Download Complete CV
-               </Button>
-               {/* Background visual decorator */}
-               <div className="absolute top-[-20%] right-[-10%] w-32 h-32 bg-primary/10 blur-3xl rounded-full" />
+            {/* Coursework */}
+            <div className="space-y-10">
+                <div className="flex items-center gap-4 text-primary/60">
+                    <BookOpen className="w-5 h-5" />
+                    <h3 className="text-xs font-sans tracking-[0.3em] uppercase font-bold">Coursework</h3>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                    {coreCoursework.map((course, i) => (
+                    <div key={i} className="flex items-center gap-4 group">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+                        <span className="text-xs font-sans text-muted-foreground group-hover:text-foreground transition-colors">{course}</span>
+                    </div>
+                    ))}
+                </div>
             </div>
           </div>
         </div>
@@ -198,3 +187,5 @@ export const Resume = () => {
     </section>
   );
 };
+
+

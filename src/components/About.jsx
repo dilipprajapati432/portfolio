@@ -1,87 +1,101 @@
-import { User, Target, BadgeCheck, Code2, Cpu, Globe } from "lucide-react";
+import { GraduationCap, MapPin, BadgeCheck, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const About = () => {
-  const stats = [
-    { label: "B.Tech CSE", value: "3rd Year", icon: Cpu },
-    { label: "PDEU", value: "India", icon: Globe },
-    { label: "CGPA", value: "7.5", icon: BadgeCheck },
+  const highlights = [
+    { 
+      label: "Education", 
+      value: "B.Tech CSE", 
+      subValue: "3rd Year",
+      icon: GraduationCap,
+      accent: "text-primary"
+    },
+    { 
+      label: "Academic Merit", 
+      value: "7.5 CGPA", 
+      subValue: "PDEU University",
+      icon: BadgeCheck,
+      accent: "text-accent"
+    },
+    { 
+      label: "Current Base", 
+      value: "Gandhinagar", 
+      subValue: "Gujarat, India",
+      icon: MapPin,
+      accent: "text-primary"
+    },
   ];
 
   return (
-    <section id="about" className="section-padding relative">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+    <section id="about" className="section-padding bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
           
-          {/* Content */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Bio Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/2 space-y-8"
+          >
             <div className="space-y-4">
-              <h2 className="heading-lg">ABOUT ME</h2>
-              <p className="text-xl text-muted-foreground leading-relaxed italic border-l-4 border-primary/40 pl-6">
-                "Creating seamless digital experiences with a focus on AI-driven innovation and performant architectures."
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
+                About <span className="gradient-text italic">Me</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-accent glow-cyan rounded-full" />
+            </div>
+
+            <p className="text-xl text-muted-foreground leading-relaxed font-light">
+              I am a dedicated <span className="text-foreground font-medium italic underline decoration-accent/30 decoration-2 underline-offset-4">Computer Science student</span> with a passion for building 
+              intelligent, performant architectures. My journey involves exploring 
+              generative AI models while maintaining a focus on pixel-perfect user experiences.
+            </p>
+
+            <div className="p-8 glass-card rounded-3xl border-white/5 relative group overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                <Sparkles className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-foreground italic leading-relaxed relative z-10">
+                "I thrive at the intersection of technical complexity and aesthetic simplicity, 
+                striving to turn abstract logic into seamless digital reality."
               </p>
             </div>
+          </motion.div>
 
-            <div className="grid sm:grid-cols-3 gap-6">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -5 }}
-                  className="glass-card p-6 rounded-2xl border-white/5 hover:border-primary/20 transition-all text-center group"
-                >
-                  <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-primary/10 transition-all">
-                    <stat.icon className="w-6 h-6 text-primary" />
+          {/* Highlight Cards Grid */}
+          <div className="lg:w-1/2 grid sm:grid-cols-2 gap-6 w-full">
+            {highlights.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -10 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className={`glass-card p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[220px] transition-all duration-300 ${i === 2 ? 'sm:col-span-2' : ''}`}
+              >
+                <div className="flex justify-between items-start">
+                  <div className={`p-4 bg-white/5 rounded-2xl ${item.accent}`}>
+                    <item.icon className="w-6 h-6" />
                   </div>
-                  <div className="text-2xl font-bold mb-1 tracking-tight">{stat.value}</div>
-                  <div className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold font-mono">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I am a dedicated Computer Science student with a passion for building complex software systems. 
-              My journey involves exploring the depths of full-stack development while integrating cutting-edge 
-              machine learning concepts into practical web applications.
-            </p>
+                  <span className="text-[10px] font-sans tracking-[0.4em] text-muted-foreground uppercase">{item.label}</span>
+                </div>
+                
+                <div className="space-y-1">
+                  <h3 className="text-2xl md:text-3xl font-serif text-foreground font-semibold">{item.value}</h3>
+                  <p className="text-sm text-muted-foreground/60">{item.subValue}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Visual Elements */}
-          <div className="lg:col-span-5 relative hidden lg:block">
-            <div className="relative glass-card aspect-square rounded-[3rem] p-8 flex items-center justify-center overflow-hidden border-white/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-              
-              <div className="relative z-10 grid grid-cols-2 gap-4">
-                {[...Array(4)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      scale: [1, 1.05, 1],
-                      opacity: [0.5, 0.8, 0.5]
-                    }}
-                    transition={{ duration: 4, delay: i * 0.5, repeat: Infinity }}
-                    className="w-12 h-12 bg-white/5 rounded-2xl border border-white/10"
-                  />
-                ))}
-              </div>
-
-              {/* Animated orbital rings */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[120%] h-[120%] border border-primary/10 rounded-full border-dashed"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[140%] h-[140%] border border-secondary/10 rounded-full border-dashed"
-              />
-            </div>
-            
-            {/* Background decorative blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-primary/5 blur-[100px] -z-10 rounded-full" />
-          </div>
         </div>
       </div>
+
+      {/* Decorative Blur */}
+      <div className="absolute top-1/2 right-[-5%] w-[30%] h-[30%] bg-accent/5 blur-[120px] rounded-full" />
     </section>
   );
 };
+
