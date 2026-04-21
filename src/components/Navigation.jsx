@@ -96,7 +96,7 @@ export const Navigation = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className={`px-4 py-2 text-[10px] font-sans font-bold uppercase tracking-[0.2em] transition-all relative group ${
-                    isActive ? "text-accent" : "text-muted-foreground/60 hover:text-foreground"
+                    isActive ? "text-accent" : "text-muted-foreground/90 hover:text-foreground"
                   }`}
                 >
                   {item.label}
@@ -154,7 +154,7 @@ export const Navigation = () => {
                     className="flex items-center justify-between group"
                   >
                     <span className={`text-lg font-serif font-bold ${
-                      activeSection === item.href.substring(1) ? "text-accent" : "text-muted-foreground"
+                      activeSection === item.href.substring(1) ? "text-accent" : "text-muted-foreground/90"
                     }`}>
                       {item.label}
                     </span>

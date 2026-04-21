@@ -24,7 +24,7 @@ export const Footer = () => {
                     DILIP<span className="gradient-text italic ml-2">KOHAR</span>
                   </h2>
                </div>
-              <p className="text-xs tracking-widest uppercase text-muted-foreground/40 leading-loose font-bold">
+              <p className="text-xs tracking-widest uppercase text-muted-foreground/80 leading-loose font-bold">
                 Synthesizing high-performance architectures through precision engineering.
               </p>
             </div>
@@ -34,7 +34,7 @@ export const Footer = () => {
                    <div className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">System_Active</span>
                 </div>
-                <span className="text-[10px] text-muted-foreground/20 font-bold tracking-widest">© {currentYear} // v2.0.4</span>
+                <span className="text-[10px] text-muted-foreground/40 font-bold tracking-widest">© {currentYear} // v2.0.4</span>
             </div>
           </div>
 
@@ -47,9 +47,9 @@ export const Footer = () => {
              ].map((s, i) => (
                <motion.a key={i} whileHover={{ x: 5 }} href={s.href} target="_blank"
                  className="group flex flex-col gap-3">
-                  <span className="text-[10px] font-bold tracking-[0.3em] text-muted-foreground/20 group-hover:text-accent transition-colors uppercase">{s.label}</span>
+                  <span className="text-[10px] font-bold tracking-[0.3em] text-muted-foreground/50 group-hover:text-accent transition-colors uppercase">{s.label}</span>
                   <div className="flex items-center gap-4">
-                     <s.icon className="w-5 h-5 text-muted-foreground/40 group-hover:text-accent transition-colors" />
+                     <s.icon className="w-5 h-5 text-muted-foreground/80 group-hover:text-accent transition-colors" />
                      <div className="h-[1px] w-0 group-hover:w-10 bg-accent/40 transition-all duration-500" />
                   </div>
                </motion.a>
@@ -82,12 +82,12 @@ export const Footer = () => {
         {/* Global Footer Marker */}
         <div className="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-4">
-               <span className="text-[9px] font-bold tracking-[0.6em] text-white/5 uppercase italic">Digital_Artifact_End // 2026</span>
-               <div className="h-[1px] w-12 bg-white/5" />
-               <Sparkles className="w-3 h-3 text-white/5" />
+               <span className="text-[9px] font-bold tracking-[0.6em] text-white/20 uppercase italic">Digital_Artifact_End // 2026</span>
+               <div className="h-[1px] w-12 bg-white/10" />
+               <Sparkles className="w-3 h-3 text-white/20" />
            </div>
            
-           <p className="text-[9px] font-bold tracking-[0.3em] text-white/5 uppercase">
+           <p className="text-[9px] font-bold tracking-[0.3em] text-white/20 uppercase">
              Designed with Precision & Intent
            </p>
         </div>

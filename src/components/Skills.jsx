@@ -11,18 +11,18 @@ export const Skills = () => {
       proficiency: 90,
     },
     {
-      title: "Backend Development",
+      title: "Backend Engineering",
       icon: Database,
       accent: "text-accent",
-      skills: ["Flask", "Python", "MySQL", "REST APIs", "Auth-Flow", "Architecture"],
-      proficiency: 75,
+      skills: ["Node.js", "Express", "Flask", "MongoDB", "MySQL", "Socket.io", "REST APIs", "Auth-Flow", "Architecture"],
+      proficiency: 85,
     },
     {
       title: "AI & Data Science",
       icon: Brain,
       accent: "text-primary",
-      skills: ["ML Theory", "TensorFlow", "Computer Vision", "Data Analysis", "Python", "AI Ethics"],
-      proficiency: 80,
+      skills: ["Generative AI", "LLMs (Gemini/Llama)", "NLP", "Machine Learning", "Python", "Data Analysis", "Computer Vision"],
+      proficiency: 85,
     },
     {
       title: "Soft Skills",
@@ -49,7 +49,7 @@ export const Skills = () => {
               Technical <span className="gradient-text italic">Matrix</span>
             </h2>
           </div>
-          <p className="text-muted-foreground/60 max-w-sm text-sm font-light leading-relaxed">
+          <p className="text-muted-foreground/90 max-w-sm text-sm font-light leading-relaxed">
             Continuously evolving through high-impact research, development cycles, and technical exploration.
           </p>
         </div>
@@ -129,9 +129,9 @@ export const Skills = () => {
                 transition={{ delay: 0.4 + (i * 0.1) }}
                 className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center space-y-2 group"
              >
-                <stat.icon className="w-5 h-5 text-accent/40 group-hover:text-accent transition-colors" />
+                <stat.icon className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
                 <div className="text-xl font-serif font-black text-foreground">{stat.value}</div>
-                <div className="text-[9px] font-sans tracking-[0.3em] uppercase text-muted-foreground/50">{stat.label}</div>
+                <div className="text-[9px] font-sans tracking-[0.3em] uppercase text-muted-foreground/80">{stat.label}</div>
              </motion.div>
            ))}
         </div>

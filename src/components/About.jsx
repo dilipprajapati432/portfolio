@@ -79,12 +79,12 @@ export const About = () => {
                   <div className={`p-4 bg-white/5 rounded-2xl ${item.accent}`}>
                     <item.icon className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-sans tracking-[0.4em] text-muted-foreground uppercase">{item.label}</span>
+                  <span className="text-[10px] font-sans tracking-[0.4em] text-muted-foreground/90 uppercase">{item.label}</span>
                 </div>
                 
                 <div className="space-y-1">
                   <h3 className="text-2xl md:text-3xl font-serif text-foreground font-semibold">{item.value}</h3>
-                  <p className="text-sm text-muted-foreground/60">{item.subValue}</p>
+                  <p className="text-sm text-muted-foreground/90">{item.subValue}</p>
                 </div>
               </motion.div>
             ))}

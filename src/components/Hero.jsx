@@ -100,7 +100,7 @@ export const Hero = () => {
               <TypewriterRoles />
             </div>
 
-            <p className="text-muted-foreground text-lg md:text-xl max-w-lg leading-relaxed font-light">
+            <p className="text-muted-foreground/90 text-lg md:text-xl max-w-lg leading-relaxed font-light">
               Crafting <span className="text-foreground font-medium italic">intelligent</span> digital experiences with 
               a focus on <span className="text-primary font-medium">Machine Learning</span> and <span className="text-accent font-medium">Modern Web Architectures</span>.
             </p>
@@ -127,7 +127,7 @@ export const Hero = () => {
                     whileHover={{ y: -5, color: "#22D3EE", backgroundColor: "rgba(34, 211, 238, 0.1)" }}
                     href={social.href}
                     target="_blank"
-                    className="p-4 glass-card rounded-xl text-muted-foreground border border-white/5 transition-all"
+                    className="p-4 glass-card rounded-xl text-muted-foreground/80 border border-white/5 transition-all"
                   >
                     <social.icon className="h-5 w-5" />
                   </motion.a>
@@ -198,7 +198,7 @@ export const Hero = () => {
       {/* Hero Scroll Indicator */}
       <motion.div
         style={{ y: y1, opacity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-muted-foreground/40 hover:text-accent transition-colors cursor-pointer"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
         onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
       >
         <span className="text-[10px] font-sans tracking-[0.6em] uppercase">Deep Scroll</span>

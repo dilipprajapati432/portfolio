@@ -42,7 +42,7 @@ export const Leadership = () => {
               Leadership <span className="gradient-text italic">& Logic</span>
             </h2>
           </div>
-          <p className="text-muted-foreground/60 max-w-sm text-sm font-light leading-relaxed">
+          <p className="text-muted-foreground/90 max-w-sm text-sm font-light leading-relaxed">
             Bridging technical excellence with collaborative strategy to drive project-critical results.
           </p>
         </div>
@@ -76,8 +76,8 @@ export const Leadership = () => {
                 <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
                   {project.highlights.map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
-                      <p className="text-[10px] font-sans font-bold text-muted-foreground/50 uppercase tracking-widest">{item}</p>
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+                      <p className="text-[10px] font-sans font-bold text-muted-foreground/85 uppercase tracking-widest">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -104,7 +104,7 @@ export const Leadership = () => {
                           <trait.icon className="w-4 h-4 text-accent/40 group-hover:text-accent transition-colors" />
                           <p className="text-xs font-sans font-bold uppercase tracking-widest text-foreground">{trait.title}</p>
                        </div>
-                       <p className="text-sm text-muted-foreground/70 leading-relaxed font-light border-l border-white/10 pl-4 group-hover:border-accent transition-colors">{trait.desc}</p>
+                       <p className="text-sm text-muted-foreground/90 leading-relaxed font-light border-l border-white/10 pl-4 group-hover:border-accent transition-colors">{trait.desc}</p>
                     </div>
                   ))}
                </div>
@@ -121,7 +121,7 @@ export const Leadership = () => {
                     <Rocket className="w-6 h-6 animate-pulse" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-[10px] font-sans tracking-[0.3em] uppercase font-bold opacity-40">Velocity</h3>
+                    <h3 className="text-[10px] font-sans tracking-[0.3em] uppercase font-bold opacity-70">Velocity</h3>
                     <p className="text-sm text-foreground/80 leading-relaxed">
                       Actively seeking <span className="text-accent font-bold">Summer 2026</span> research roles in AI and Distributed Systems.
                     </p>

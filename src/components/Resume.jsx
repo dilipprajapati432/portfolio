@@ -99,9 +99,9 @@ export const Resume = () => {
                                 <h4 className="text-2xl font-serif font-bold text-foreground">{edu.degree}</h4>
                                 <span className="text-xs font-sans text-accent bg-accent/10 px-3 py-1 rounded-full">{edu.duration}</span>
                             </div>
-                            <p className="text-muted-foreground/80 font-light">{edu.institution} // {edu.location}</p>
+                            <p className="text-muted-foreground/90 font-light">{edu.institution} // {edu.location}</p>
                             <div className="pt-4 border-t border-white/5">
-                                <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-muted-foreground/40 font-bold">Grade: {edu.grade}</span>
+                                <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-muted-foreground/80 font-bold">Grade: {edu.grade}</span>
                             </div>
                         </div>
                     </motion.div>
@@ -131,7 +131,7 @@ export const Resume = () => {
                                 <span className="text-xs font-sans text-primary bg-primary/10 px-3 py-1 rounded-full">{exp.duration}</span>
                             </div>
                             <p className="text-accent text-sm font-medium uppercase tracking-widest">{exp.company}</p>
-                            <p className="text-muted-foreground/70 text-sm leading-relaxed font-light">{exp.details}</p>
+                            <p className="text-muted-foreground/90 text-sm leading-relaxed font-light">{exp.details}</p>
                         </div>
                     </motion.div>
                     ))}
@@ -158,9 +158,9 @@ export const Resume = () => {
                     >
                         <div className="space-y-1">
                             <h5 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
-                            <p className="text-[10px] text-muted-foreground/40 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
+                            <p className="text-[10px] text-muted-foreground/75 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
                         </div>
-                        <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-accent transition-all" />
+                        <ArrowUpRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-accent transition-all" />
                     </motion.a>
                     ))}
                 </div>
