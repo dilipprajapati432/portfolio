@@ -46,7 +46,7 @@ export const About = () => {
               <div className="h-1.5 w-20 bg-accent glow-cyan rounded-full" />
             </div>
 
-            <p className="text-xl text-muted-foreground leading-relaxed font-light">
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
               I am a dedicated <span className="text-foreground font-medium italic underline decoration-accent/30 decoration-2 underline-offset-4">Computer Science student</span> with a passion for building 
               intelligent, performant architectures. My journey involves exploring 
               generative AI models while maintaining a focus on pixel-perfect user experiences.
@@ -56,7 +56,7 @@ export const About = () => {
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                 <Sparkles className="w-12 h-12 text-accent" />
               </div>
-              <p className="text-lg text-foreground italic leading-relaxed relative z-10">
+              <p className="text-base text-foreground italic leading-relaxed relative z-10">
                 "I thrive at the intersection of technical complexity and aesthetic simplicity, 
                 striving to turn abstract logic into seamless digital reality."
               </p>
@@ -84,7 +84,7 @@ export const About = () => {
                 
                 <div className="space-y-1">
                   <h3 className="text-2xl md:text-3xl font-serif text-foreground font-semibold">{item.value}</h3>
-                  <p className="text-sm text-muted-foreground/90">{item.subValue}</p>
+                  <p className="text-xs text-muted-foreground/90">{item.subValue}</p>
                 </div>
               </motion.div>
             ))}

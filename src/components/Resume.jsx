@@ -124,8 +124,8 @@ export const Resume = () => {
                         <h4 className="text-2xl font-serif font-bold text-foreground">{exp.title}</h4>
                         <span className="text-xs font-sans text-primary bg-primary/10 px-3 py-1 rounded-full">{exp.duration}</span>
                       </div>
-                      <p className="text-accent text-sm font-medium uppercase tracking-widest">{exp.company}</p>
-                      <p className="text-muted-foreground/90 text-sm leading-relaxed font-light">{exp.details}</p>
+                      <p className="text-accent text-xs font-medium uppercase tracking-widest">{exp.company}</p>
+                      <p className="text-muted-foreground/90 text-xs leading-relaxed font-light">{exp.details}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -151,7 +151,7 @@ export const Resume = () => {
                     className="glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group"
                   >
                     <div className="space-y-1">
-                      <h5 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
+                      <h5 className="text-xs font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
                       <p className="text-[10px] text-muted-foreground/75 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-accent transition-all" />

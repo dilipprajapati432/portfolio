@@ -174,7 +174,7 @@ export const Projects = () => {
           <h4 className="text-xl font-serif font-bold text-foreground group-hover:text-accent transition-colors mb-2 leading-tight">
             {project.title}
           </h4>
-          <p className="text-sm text-muted-foreground/90 leading-relaxed line-clamp-2 font-light">
+          <p className="text-xs text-muted-foreground/90 leading-relaxed line-clamp-2 font-light">
             {project.description}
           </p>
         </div>
@@ -204,7 +204,7 @@ export const Projects = () => {
             </h2>
           </div>
 
-          <p className="text-muted-foreground/90 max-w-sm text-sm font-light leading-relaxed">
+          <p className="text-muted-foreground/90 max-w-sm text-xs font-light leading-relaxed">
             High-impact systems bridging AI research with production-grade engineering.
           </p>
         </div>

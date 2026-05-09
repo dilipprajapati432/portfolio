@@ -4,7 +4,6 @@ import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Resume } from "@/components/Resume";
-import { Leadership } from "@/components/Leadership";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { useEffect, useState } from "react";
@@ -97,10 +96,6 @@ const Index = () => {
           
           <section id="projects" className="reveal">
             <Projects />
-          </section>
-          
-          <section id="leadership" className="reveal">
-            <Leadership />
           </section>
           
           <section id="contact" className="reveal">

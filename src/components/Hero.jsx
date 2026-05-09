@@ -30,7 +30,7 @@ const TypewriterRoles = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -15, opacity: 0 }}
           transition={{ duration: 0.5, ease: "circOut" }}
-          className="text-xl md:text-2xl font-medium text-accent italic tracking-wide"
+          className="text-lg md:text-xl font-medium text-accent italic tracking-wide"
         >
           {roles[index]}
         </motion.p>
@@ -100,7 +100,7 @@ export const Hero = () => {
               <TypewriterRoles />
             </div>
 
-            <p className="text-muted-foreground/90 text-lg md:text-xl max-w-lg leading-relaxed font-light">
+            <p className="text-muted-foreground/90 text-base md:text-lg max-w-lg leading-relaxed font-light">
               Crafting <span className="text-foreground font-medium italic">intelligent</span> digital experiences with
               a focus on <span className="text-primary font-medium">Machine Learning</span> and <span className="text-accent font-medium">Modern Web Architectures</span>.
             </p>
@@ -171,29 +171,6 @@ export const Hero = () => {
                 style={{ transform: "translateZ(50px)" }}
                 className="relative z-10 w-full h-full rounded-full glass-card p-2 group cursor-none"
               >
-                {/* Orbital Sparkles */}
-                {[...Array(4)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      rotate: [0, 360],
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.8, 0.3]
-                    }}
-                    transition={{
-                      rotate: { duration: 10 + i * 5, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 2, repeat: Infinity, delay: i * 0.5 },
-                      opacity: { duration: 2, repeat: Infinity, delay: i * 0.5 }
-                    }}
-                    className="absolute inset-[-15px] pointer-events-none"
-                    style={{ rotate: i * 90 }}
-                  >
-                    <Sparkles
-                      className={`w-5 h-5 text-accent shadow-[0_0_15px_#22D3EE] absolute top-0 left-1/2 -translate-x-1/2`}
-                    />
-                  </motion.div>
-                ))}
-
                 <div className="w-full h-full rounded-full overflow-hidden relative">
                   <img
                     src={profileImage}
@@ -203,16 +180,6 @@ export const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
                 </div>
               </div>
-
-              {/* Float Badge */}
-              <motion.div
-                style={{ transform: "translateZ(100px)" }}
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 p-5 glass-card rounded-2xl border-accent/20 z-20"
-              >
-                <Sparkles className="w-6 h-6 text-accent animate-pulse" />
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>

@@ -9,7 +9,6 @@ const navItems = [
   { label: "Matrix", href: "#skills" },
   { label: "Project", href: "#projects" },
   { label: "Timeline", href: "#resume" },
-  { label: "Impact", href: "#leadership" },
   { label: "Connect", href: "#contact" },
 ];
 
