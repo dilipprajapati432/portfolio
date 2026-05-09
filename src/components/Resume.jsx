@@ -1,25 +1,20 @@
 import { GraduationCap, Briefcase, Award, Download, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import javaCert from "@/assets/Java_Certificate.pdf";
-import aiCert from "@/assets/AI Essentials Workshop.jpeg";
-import webCert from "@/assets/web development by ACM.pdf";
-import hackCert from "@/assets/Ethical Hacking workshop.pdf";
-import resumeFile from "@/assets/DilipKohar_Resume.pdf";
 
 export const Resume = () => {
   const education = [
     {
       degree: "B.Tech in Computer Science & Engineering",
       institution: "Pandit Deendayal Energy University (PDEU)",
-      location: "India",
+      location: "Gujarat,India",
       duration: "2023 — 2027",
       grade: "7.5 CGPA",
     },
     {
       degree: "Higher Secondary Education",
-      institution: "Siddhartha English Boarding School",
-      location: "Nepal",
+      institution: "Siddhartha English Boarding Secondary School",
+      location: "Lumbini, Nepal",
       duration: "2019 — 2021",
       grade: "3.19 GPA",
     },
@@ -38,9 +33,9 @@ export const Resume = () => {
     { name: "AWS SimuLearn: Protecting Data at Rest", issuer: "AWS", year: "2026", link: "#" },
     { name: "Building a Serverless API", issuer: "AWS", year: "2026", link: "#" },
     { name: "Java (Basic)", issuer: "HackerRank", year: "2026", link: "#" },
-    { name: "Ethical Hacking Workshop", issuer: "IEEE Student Chapter, PDEU", year: "2025", link: hackCert },
-    { name: "Mastering the Web", issuer: "ACM PDEU", year: "2025", link: webCert },
-    { name: "AI Essentials", issuer: "PDEU Workshop", year: "2025", link: aiCert },
+    { name: "Ethical Hacking Workshop", issuer: "IEEE Student Chapter, PDEU", year: "2025", link: "/documents/Ethical Hacking workshop.pdf" },
+    { name: "Mastering the Web", issuer: "ACM PDEU", year: "2025", link: "/documents/web development by ACM.pdf" },
+    { name: "AI Essentials", issuer: "PDEU Workshop", year: "2025", link: "/images/AI Essentials Workshop.jpeg" },
   ];
 
   return (
@@ -52,14 +47,14 @@ export const Resume = () => {
               <div className="h-[2px] w-12 bg-accent glow-cyan" />
               <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Experience</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground tracking-tight">
               Career <span className="gradient-text italic">Timeline</span>
             </h2>
           </div>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              onClick={() => window.open(resumeFile, "_blank")}
+              onClick={() => window.open("/documents/DilipKohar_Resume.pdf", "_blank")}
               className="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 rounded-xl px-8 py-6 gap-3 transition-all"
             >
               <Download className="w-5 h-5 text-accent" />

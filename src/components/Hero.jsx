@@ -1,40 +1,52 @@
 import { useState, useEffect } from "react";
-import { Mail, Github, Linkedin, ChevronDown, Download, Sparkles } from "lucide-react";
+import { Mail, Github, Linkedin, ChevronDown, Download, Sparkles, Twitter, Facebook, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
-import profileImage from "@/assets/profile-dilip1.jpg";
-import resumeFile from "@/assets/DilipKohar_Resume.pdf";
 
 const roles = [
-  "Data Scientist",
-  "Web Developer",
+  "Full Stack Developer",
+  "Software Engineer",
   "AI Enthusiast",
 ];
 
 const TypewriterRoles = () => {
   const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+  const [blink, setBlink] = useState(true);
 
+  // Blinking cursor
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+    const timeout2 = setTimeout(() => setBlink((prev) => !prev), 500);
+    return () => clearTimeout(timeout2);
+  }, [blink]);
+
+  // Typing effect
+  useEffect(() => {
+    if (subIndex === roles[index].length + 1 && !reverse) {
+      setTimeout(() => setReverse(true), 2000); // Wait before deleting
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, Math.max(reverse ? 50 : 100, parseInt(Math.random() * 50))); // Typing speed
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse]);
 
   return (
     <div className="h-10 flex items-center">
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={index}
-          initial={{ y: 15, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -15, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "circOut" }}
-          className="text-lg md:text-xl font-medium text-accent italic tracking-wide"
-        >
-          {roles[index]}
-        </motion.p>
-      </AnimatePresence>
+      <p className="text-lg md:text-xl font-medium text-accent italic tracking-wide">
+        {roles[index].substring(0, subIndex)}
+        <span className={`inline-block w-[2px] h-5 bg-accent ml-1 align-middle transition-opacity duration-100 ${blink ? 'opacity-100' : 'opacity-0'}`}></span>
+      </p>
     </div>
   );
 };
@@ -86,40 +98,44 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="flex items-center gap-3"
+                className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.5)] mb-2"
               >
-                <div className="h-[2px] w-8 bg-accent glow-cyan" />
-                <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Available for Work</span>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+                </span>
+                <span className="text-[10px] font-sans font-bold tracking-[0.3em] uppercase text-white/90">Available for Work</span>
               </motion.div>
 
-              <h1 className="text-6xl md:text-8xl font-serif font-bold text-foreground leading-[1.1] tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground leading-[1.1] tracking-tight">
                 Dilip<br />
-                <span className="gradient-text italic">Prajapati</span>
+                <span className="gradient-text">Prajapati</span>
               </h1>
 
               <TypewriterRoles />
             </div>
 
-            <p className="text-muted-foreground/90 text-base md:text-lg max-w-lg leading-relaxed font-light">
-              Crafting <span className="text-foreground font-medium italic">intelligent</span> digital experiences with
-              a focus on <span className="text-primary font-medium">Machine Learning</span> and <span className="text-accent font-medium">Modern Web Architectures</span>.
+            <p className="text-muted-foreground/80 text-[13px] md:text-[15px] max-w-xl leading-[1.8] font-sans font-medium tracking-wide">
+              Engineering <span className="text-white font-bold italic">intelligent systems</span> and premium digital experiences at the intersection of <span className="text-primary font-bold">Machine Learning</span> and <span className="text-accent font-bold">Modern Web Architecture</span>.
             </p>
 
             <div className="flex flex-wrap gap-6 pt-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
-                  onClick={() => window.open(resumeFile, "_blank")}
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-xl transition-all font-bold gap-3 glow-cyan border border-primary/20"
+                  onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-xl transition-all font-bold gap-3 glow-cyan border border-primary/20 group"
                 >
-                  <Download className="w-5 h-5" />
-                  <span className="uppercase tracking-widest text-xs">Resume</span>
+                  <span className="uppercase tracking-widest text-xs">Hire Me</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </motion.div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 {[
                   { icon: Github, href: "https://github.com/dilipprajapati432" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293" },
+                  { icon: Twitter, href: "https://x.com/DilipPraja6787" },
+                  { icon: Facebook, href: "https://www.facebook.com/dilipprajapati516/" },
                   { icon: Mail, href: "mailto:dilipkohar4320@gmail.com" }
                 ].map((social, i) => (
                   <motion.a
@@ -173,7 +189,7 @@ export const Hero = () => {
               >
                 <div className="w-full h-full rounded-full overflow-hidden relative">
                   <img
-                    src={profileImage}
+                    src="/images/profile-dilip1.jpg"
                     alt="Dilip Prajapati"
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
                   />

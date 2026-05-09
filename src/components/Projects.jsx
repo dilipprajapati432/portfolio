@@ -9,18 +9,19 @@ const featuredProjects = [
     category: "Intelligence",
     description: "Full-stack ATS resume analyzer using React, Node.js, and Express. Integrated Gemini and Llama models for AI-based scoring, keyword analysis, and improvement tips.",
     tags: ["React", "Node.js", "Express", "AI", "Gemini"],
-    github: "https://github.com/dilipprajapati432/ResumeIQ-AI-ATS-Optimizer.git",
+    github: "https://github.com/dilipprajapati432/ResumeIQ-AI-ATS-Resume-Analyzer.git",
     demo: "https://resumeiqscan.vercel.app",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/resumeiq.png",
   },
+  
   {
     title: "BizEngine – AI Decision Engine",
-    category: "Intelligence",
+    category: "Business Intelligence",
     description: "AI-driven system using React and Python for business data analysis. Integrated Gemini and Groq LLMs for insights and applied linear regression for predictive analytics.",
     tags: ["React", "Python", "AI", "ML", "Business"],
     github: "https://github.com/dilipprajapati432/BizEngine-AI-Powered-Business-Decision-Engine.git",
     demo: "https://bizengine-ai.vercel.app/",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "/images/bizengine.png",
   },
   {
     title: "BeatChat – Real-Time Chat",
@@ -29,10 +30,9 @@ const featuredProjects = [
     tags: ["React", "Node.js", "MongoDB", "Socket.io", "Express"],
     github: "https://github.com/dilipprajapati432/dilip-kohar-portfolio.git",
     demo: "https://beatchat.vercel.app",
-    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/beatchat.png",
   },
 ];
-
 const secondaryProjects = [
   {
     title: "BhatBhateni E-Commerce",
@@ -68,12 +68,14 @@ export const Projects = () => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -12 }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
       viewport={{ once: true }}
-      className="glass-card group rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-accent/30 flex flex-col shadow-2xl relative"
+      className="group relative rounded-[2.5rem] overflow-hidden bg-white/[0.02] backdrop-blur-2xl border border-white/5 hover:-translate-y-3 hover:border-white/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex flex-col"
     >
-      <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[2rem] group/img">
+      {/* Subtle Hover Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
+      
+      <div className="relative z-10 aspect-[4/3] overflow-hidden m-4 rounded-[2rem] group/img">
         {/* Twinkling Sparkles on Image Corner */}
         <motion.div 
           animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.2, 1] }}
@@ -86,9 +88,9 @@ export const Projects = () => {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 group-hover/img:rotate-1"
         />
-        <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-sm">
           <motion.a
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
@@ -116,7 +118,7 @@ export const Projects = () => {
         </div>
       </div>
 
-      <div className="px-8 pb-8 flex-1 flex flex-col justify-between space-y-6">
+      <div className="relative z-10 px-8 pb-8 flex-1 flex flex-col justify-between space-y-6">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag, tIdx) => (
@@ -151,12 +153,14 @@ export const Projects = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ y: -5, borderColor: "rgba(34, 211, 238, 0.3)" }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
       viewport={{ once: true }}
-      className="glass-card p-6 rounded-[2rem] border border-white/5 flex flex-col justify-between gap-6 transition-all group"
+      className="group relative overflow-hidden p-6 rounded-[2rem] bg-white/[0.02] backdrop-blur-2xl border border-white/5 hover:-translate-y-2 hover:border-white/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex flex-col justify-between gap-6"
     >
-      <div className="space-y-4">
+      {/* Subtle Hover Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
+
+      <div className="space-y-4 relative z-10">
         <div className="flex justify-between items-start">
           <div className="p-2.5 bg-white/5 rounded-xl text-primary group-hover:text-accent transition-colors">
             <Code2 className="w-5 h-5" />
@@ -180,7 +184,7 @@ export const Projects = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
+      <div className="relative z-10 flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
         {project.tags.map((tag, tIdx) => (
           <span key={tIdx} className="text-[9px] font-sans font-bold uppercase tracking-wider text-muted-foreground/90 bg-white/5 px-2 py-1 rounded-md border border-white/5">
             {tag}
@@ -199,7 +203,7 @@ export const Projects = () => {
               <div className="h-[2px] w-12 bg-accent glow-cyan" />
               <span className="text-accent font-sans text-xs tracking-[0.4em] uppercase font-semibold">Portfolios</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground tracking-tight">
               Featured <span className="gradient-text italic">Intelligence</span>
             </h2>
           </div>
@@ -229,7 +233,7 @@ export const Projects = () => {
       </div>
 
       {/* Decorative Blur */}
-      <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[150px] rounded-full" />
+      <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[150px] rounded-full pointer-events-none -z-10" />
     </section>
   );
 };
