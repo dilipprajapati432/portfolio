@@ -86,16 +86,16 @@ const Index = () => {
             <About />
           </section>
           
-          <section id="resume" className="reveal">
-            <Resume />
-          </section>
-          
           <section id="skills" className="reveal">
             <Skills />
           </section>
           
           <section id="projects" className="reveal">
             <Projects />
+          </section>
+
+          <section id="resume" className="reveal">
+            <Resume />
           </section>
           
           <section id="contact" className="reveal">

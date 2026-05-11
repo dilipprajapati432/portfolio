@@ -28,18 +28,36 @@ export const Navigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          // If the top of the section has reached the upper third of the screen
+          if (rect.top <= 300) {
             currentSection = section;
-            break;
           }
         }
       }
+
+      // If scrolled to the absolute bottom, activate the last section
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        currentSection = sections[sections.length - 1];
+      }
+
       setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -58,19 +76,17 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled
-          ? "py-4"
-          : "py-8"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
+        ? "py-4"
+        : "py-8"
+        }`}
     >
       <div className="container mx-auto px-6">
-        <div 
-          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${
-            isScrolled 
-              ? "glass-card bg-[#050505]/60 border-white/5 shadow-2xl" 
-              : "bg-transparent"
-          }`}
+        <div
+          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${isScrolled
+            ? "glass-card bg-[#050505]/60 border-white/5 shadow-2xl"
+            : "bg-transparent"
+            }`}
         >
           <a
             href="#hero"
@@ -94,9 +110,8 @@ export const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 text-[10px] font-sans font-bold uppercase tracking-[0.2em] transition-all relative group ${
-                    isActive ? "text-accent" : "text-muted-foreground/90 hover:text-foreground"
-                  }`}
+                  className={`px-4 py-2 text-[10px] font-sans font-bold uppercase tracking-[0.2em] transition-all relative group ${isActive ? "text-accent" : "text-muted-foreground/90 hover:text-foreground"
+                    }`}
                 >
                   {item.label}
                   {isActive && (
@@ -113,58 +128,66 @@ export const Navigation = () => {
 
           {/* Contact Button */}
           <div className="hidden md:block">
-            <Button 
-                onClick={() => scrollToSection("#contact")}
-                className="bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 rounded-xl px-6 font-sans text-[10px] font-bold uppercase tracking-widest transition-all"
+            <Button
+              onClick={() => scrollToSection("#contact")}
+              className="bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 rounded-xl px-6 font-sans text-[10px] font-bold uppercase tracking-widest transition-all"
             >
-                Let's Talk
+              Let's Talk
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
+          <div className="md:hidden relative z-[110]">
+            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground hover:bg-white/5 rounded-xl"
+              className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu & Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed inset-x-6 top-24 z-[100] md:hidden"
-          >
-            <div className="glass-card bg-[#050505]/90 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <div className="flex flex-col space-y-6">
-                {navItems.map((item) => (
-                  <button
-                    key={item.href}
-                    onClick={() => scrollToSection(item.href)}
-                    className="flex items-center justify-between group"
-                  >
-                    <span className={`text-lg font-serif font-bold ${
-                      activeSection === item.href.substring(1) ? "text-accent" : "text-muted-foreground/90"
-                    }`}>
-                      {item.label}
-                    </span>
-                    <div className={`h-[1px] flex-1 mx-4 bg-white/5 transition-all ${
-                      activeSection === item.href.substring(1) ? "bg-accent/40 mr-0" : ""
-                    }`} />
-                  </button>
-                ))}
+          <>
+            {/* Full Screen Blur Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 z-[90] bg-black/60 backdrop-blur-md md:hidden"
+            />
+            
+            {/* Menu Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              className="fixed inset-x-6 top-24 z-[100] md:hidden"
+            >
+              <div className="glass-card bg-[#050505]/90 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <div className="flex flex-col space-y-6">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.href}
+                      onClick={() => scrollToSection(item.href)}
+                      className="flex items-center justify-between group"
+                    >
+                      <span className={`text-lg font-serif font-bold ${activeSection === item.href.substring(1) ? "text-accent" : "text-muted-foreground/90"
+                        }`}>
+                        {item.label}
+                      </span>
+                      <div className={`h-[1px] flex-1 mx-4 bg-white/5 transition-all ${activeSection === item.href.substring(1) ? "bg-accent/40 mr-0" : ""
+                        }`} />
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

@@ -86,25 +86,25 @@ export const SplashScreen = ({ onFinish }) => {
           <svg viewBox="0 0 100 100" className="w-full h-full">
             {/* D */}
             <motion.path
-                d="M30 25 V75 C30 75 70 75 70 50 C70 25 30 25 30 25"
-                fill="transparent"
-                stroke="url(#accent-grad)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                variants={pathVariants}
-                initial="hidden"
-                animate="visible"
+              d="M30 25 V75 C30 75 70 75 70 50 C70 25 30 25 30 25"
+              fill="transparent"
+              stroke="url(#accent-grad)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              variants={pathVariants}
+              initial="hidden"
+              animate="visible"
             />
             {/* P */}
             <motion.path
-                d="M72 25 V75 M72 25 C95 25 95 50 72 50"
-                fill="transparent"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                variants={pathVariants}
-                initial="hidden"
-                animate="visible"
+              d="M72 25 V75 M72 25 C95 25 95 50 72 50"
+              fill="transparent"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              variants={pathVariants}
+              initial="hidden"
+              animate="visible"
             />
             <defs>
               <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -132,16 +132,16 @@ export const SplashScreen = ({ onFinish }) => {
         <div className="text-center space-y-6">
           <div className="overflow-hidden">
             <motion.h1
-                initial={{ y: 80, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 2.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-3xl md:text-5xl font-serif font-black tracking-tight text-foreground uppercase"
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 2.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl md:text-5xl font-serif font-black tracking-tight text-foreground uppercase"
             >
-                DILIP <span className="gradient-text">PRAJAPATI</span>
+              DILIP <span className="gradient-text">PRAJAPATI</span>
             </motion.h1>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 2.8, duration: 1.5, ease: "easeInOut" }}
@@ -162,12 +162,12 @@ export const SplashScreen = ({ onFinish }) => {
       {/* Modern Latency/Progress Indicator */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64">
         <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: "0%" }}
-              transition={{ duration: 4, ease: "easeInOut" }}
-              className="h-full w-full bg-gradient-to-r from-transparent via-accent to-transparent"
-            />
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: "0%" }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+            className="h-full w-full bg-gradient-to-r from-transparent via-accent to-transparent"
+          />
         </div>
       </div>
 

@@ -202,14 +202,16 @@ export const Hero = () => {
       </div>
 
       {/* Hero Scroll Indicator */}
-      <motion.div
-        style={{ y: y1, opacity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
-        onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-      >
-        <span className="text-[10px] font-sans tracking-[0.6em] uppercase">Deep Scroll</span>
-        <ChevronDown className="w-5 h-5 animate-bounce" />
-      </motion.div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+        <motion.div
+          style={{ y: y1, opacity }}
+          className="flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
+          onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span className="text-[10px] font-sans tracking-[0.6em] uppercase pl-[0.6em]">Deep Scroll</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </motion.div>
+      </div>
     </section>
   );
 };
