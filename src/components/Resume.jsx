@@ -148,9 +148,8 @@ export const Resume = () => {
                         if (isPlaceholder) e.preventDefault();
                       }}
                       whileHover={isPlaceholder ? {} : { x: 5 }}
-                      className={`glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group ${
-                        isPlaceholder ? "cursor-default opacity-80" : "cursor-pointer"
-                      }`}
+                      className={`glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group ${isPlaceholder ? "cursor-default opacity-80" : "cursor-pointer"
+                        }`}
                     >
                       <div className="space-y-1">
                         <h5 className="text-xs font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
