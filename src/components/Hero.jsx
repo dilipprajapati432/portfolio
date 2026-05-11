@@ -75,7 +75,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-8 md:pt-16 md:pb-0 bg-background">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-24 pb-20 md:pt-16 md:pb-0 bg-background">
       {/* Dynamic Glow Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
@@ -203,7 +203,7 @@ export const Hero = () => {
       </div>
 
       {/* Hero Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute bottom-12 md:bottom-10 left-1/2 -translate-x-1/2 z-20">
         <motion.div
           style={{ opacity }}
           className="flex flex-col items-center gap-2 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
