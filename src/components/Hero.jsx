@@ -75,7 +75,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-24 pb-20 md:pt-16 md:pb-0 bg-background">
+    <section id="hero" className="relative w-full min-h-[100svh] flex items-center pt-24 pb-20 md:pt-16 md:pb-0 overflow-x-clip bg-background">
       {/* Dynamic Glow Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
