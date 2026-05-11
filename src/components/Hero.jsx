@@ -75,7 +75,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-8 md:pt-16 overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-16 pb-16 md:pb-0 overflow-hidden bg-background">
       {/* Dynamic Glow Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
@@ -203,14 +203,14 @@ export const Hero = () => {
       </div>
 
       {/* Hero Scroll Indicator */}
-      <div className="absolute bottom-12 md:bottom-10 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20">
         <motion.div
           style={{ y: y1, opacity }}
-          className="flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
+          className="flex flex-col items-center gap-2 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
           onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
         >
-          <span className="text-[10px] font-sans tracking-[0.6em] uppercase pl-[0.6em]">Deep Scroll</span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
+          <span className="text-[8px] md:text-[10px] font-sans tracking-[0.4em] md:tracking-[0.6em] uppercase pl-[0.4em]">Deep Scroll</span>
+          <ChevronDown className="w-4 h-4 md:w-5 md:h-5 animate-bounce" />
         </motion.div>
       </div>
     </section>
