@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, AnimatePresence, useSpring } from "fra
 const roles = [
   "Full Stack Developer",
   "Software Engineer",
+  "Cyber Security Analyst",
   "AI Enthusiast",
 ];
 
@@ -130,7 +131,7 @@ export const Hero = () => {
                 </Button>
               </motion.div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 {[
                   { icon: Github, href: "https://github.com/dilipprajapati432" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293" },
@@ -143,7 +144,7 @@ export const Hero = () => {
                     whileHover={{ y: -5, color: "#22D3EE", backgroundColor: "rgba(34, 211, 238, 0.1)" }}
                     href={social.href}
                     target="_blank"
-                    className="p-4 glass-card rounded-xl text-muted-foreground/80 border border-white/5 transition-all"
+                    className="p-3 md:p-4 glass-card rounded-xl text-muted-foreground/80 border border-white/5 transition-all"
                   >
                     <social.icon className="h-5 w-5" />
                   </motion.a>

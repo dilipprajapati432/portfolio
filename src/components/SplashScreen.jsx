@@ -84,17 +84,33 @@ export const SplashScreen = ({ onFinish }) => {
         {/* SVG Branding Animation */}
         <div className="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center mb-12">
           <svg viewBox="0 0 100 100" className="w-full h-full">
-            {/* D */}
-            <motion.path
-              d="M30 25 V75 C30 75 70 75 70 50 C70 25 30 25 30 25"
-              fill="transparent"
-              stroke="url(#accent-grad)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              variants={pathVariants}
-              initial="hidden"
-              animate="visible"
+            <defs>
+              <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22D3EE" />
+                <stop offset="100%" stopColor="#fff" />
+              </linearGradient>
+              {/* Mask workaround for iOS Safari gradient animation bug */}
+              <mask id="d-mask">
+                <motion.path
+                  d="M30 25 V75 C30 75 70 75 70 50 C70 25 30 25 30 25"
+                  fill="transparent"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  variants={pathVariants}
+                  initial="hidden"
+                  animate="visible"
+                />
+              </mask>
+            </defs>
+
+            {/* D (Rendered via Mask to guarantee 60fps on mobile) */}
+            <rect 
+              x="25" y="20" width="50" height="60" 
+              fill="url(#accent-grad)" 
+              mask="url(#d-mask)" 
             />
+
             {/* P */}
             <motion.path
               d="M72 25 V75 M72 25 C95 25 95 50 72 50"
@@ -106,12 +122,6 @@ export const SplashScreen = ({ onFinish }) => {
               initial="hidden"
               animate="visible"
             />
-            <defs>
-              <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="var(--accent)" />
-                <stop offset="100%" stopColor="#fff" />
-              </linearGradient>
-            </defs>
           </svg>
 
           {/* Orbital Rings */}

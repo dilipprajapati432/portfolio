@@ -81,7 +81,7 @@ export const Navigation = () => {
         : "py-8"
         }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-[110]">
         <div
           className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${isScrolled
             ? "glass-card bg-[#050505]/60 border-white/5 shadow-2xl"

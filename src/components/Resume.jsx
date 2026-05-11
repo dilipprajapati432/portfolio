@@ -30,9 +30,9 @@ export const Resume = () => {
   ];
 
   const certifications = [
-    { name: "AWS SimuLearn: Protecting Data at Rest", issuer: "AWS", year: "2026", link: "#" },
-    { name: "Building a Serverless API", issuer: "AWS", year: "2026", link: "#" },
-    { name: "Java (Basic)", issuer: "HackerRank", year: "2026", link: "#" },
+    { name: "AWS SimuLearn: Protecting Data at Rest", issuer: "AWS", year: "2026", link: "/documents/Protecting Data at Rest.pdf" },
+    { name: "Building a Serverless API", issuer: "AWS", year: "2026", link: "/documents/Lab- Building A serverless API.pdf" },
+    { name: "Java (Basic)", issuer: "HackerRank", year: "2026", link: "/documents/java_basic certificate.pdf" },
     { name: "Ethical Hacking Workshop", issuer: "IEEE Student Chapter, PDEU", year: "2025", link: "/documents/Ethical Hacking workshop.pdf" },
     { name: "Mastering the Web", issuer: "ACM PDEU", year: "2025", link: "/documents/web development by ACM.pdf" },
     { name: "AI Essentials", issuer: "PDEU Workshop", year: "2025", link: "/images/AI Essentials Workshop.jpeg" },
@@ -54,7 +54,7 @@ export const Resume = () => {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              onClick={() => window.open("/documents/DilipKohar_Resume.pdf", "_blank")}
+              onClick={() => window.open("/documents/DILIP_KOHAR_RESUME.pdf", "_blank")}
               className="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 rounded-xl px-8 py-6 gap-3 transition-all"
             >
               <Download className="w-5 h-5 text-accent" />
@@ -137,21 +137,31 @@ export const Resume = () => {
                 <h3 className="text-xs font-sans tracking-[0.3em] uppercase font-bold">Certifications</h3>
               </div>
               <div className="space-y-4">
-                {certifications.map((cert, i) => (
-                  <motion.a
-                    key={i}
-                    href={cert.link}
-                    target="_blank"
-                    whileHover={{ x: 5 }}
-                    className="glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group"
-                  >
-                    <div className="space-y-1">
-                      <h5 className="text-xs font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
-                      <p className="text-[10px] text-muted-foreground/75 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-accent transition-all" />
-                  </motion.a>
-                ))}
+                {certifications.map((cert, i) => {
+                  const isPlaceholder = cert.link === "#";
+                  return (
+                    <motion.a
+                      key={i}
+                      href={cert.link}
+                      target={isPlaceholder ? "_self" : "_blank"}
+                      onClick={(e) => {
+                        if (isPlaceholder) e.preventDefault();
+                      }}
+                      whileHover={isPlaceholder ? {} : { x: 5 }}
+                      className={`glass-card p-6 rounded-2xl border border-white/5 flex items-center justify-between group ${
+                        isPlaceholder ? "cursor-default opacity-80" : "cursor-pointer"
+                      }`}
+                    >
+                      <div className="space-y-1">
+                        <h5 className="text-xs font-bold text-foreground group-hover:text-accent transition-colors">{cert.name}</h5>
+                        <p className="text-[10px] text-muted-foreground/75 uppercase tracking-widest">{cert.issuer} // {cert.year}</p>
+                      </div>
+                      {!isPlaceholder && (
+                        <ArrowUpRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-accent transition-all" />
+                      )}
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
 
