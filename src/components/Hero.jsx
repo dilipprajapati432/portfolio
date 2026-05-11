@@ -75,9 +75,9 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-16 pb-16 md:pb-0 overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-8 md:pt-16 md:pb-0 bg-background">
       {/* Dynamic Glow Background */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[120px] rounded-full animate-pulse delay-700" />
       </div>
@@ -205,7 +205,7 @@ export const Hero = () => {
       {/* Hero Scroll Indicator */}
       <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20">
         <motion.div
-          style={{ y: y1, opacity }}
+          style={{ opacity }}
           className="flex flex-col items-center gap-2 text-muted-foreground/80 hover:text-accent transition-colors cursor-pointer"
           onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
         >
