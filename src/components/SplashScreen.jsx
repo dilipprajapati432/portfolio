@@ -111,9 +111,9 @@ export const SplashScreen = ({ onFinish }) => {
               mask="url(#d-mask)" 
             />
 
-            {/* P */}
+            {/* K */}
             <motion.path
-              d="M72 25 V75 M72 25 C95 25 95 50 72 50"
+              d="M72 25 V75 M72 50 L95 25 M72 50 L95 75"
               fill="transparent"
               stroke="white"
               strokeWidth="1.5"
@@ -147,7 +147,7 @@ export const SplashScreen = ({ onFinish }) => {
               transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl md:text-5xl font-serif font-black tracking-tight text-foreground uppercase"
             >
-              DILIP <span className="gradient-text">PRAJAPATI</span>
+              DILIP <span className="gradient-text">KOHAR</span>
             </motion.h1>
           </div>
 

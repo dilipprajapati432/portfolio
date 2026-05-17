@@ -47,7 +47,7 @@ export const About = () => {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              Hi, I’m <span className="text-foreground font-medium italic underline decoration-accent/30 decoration-2 underline-offset-4">Dilip Prajapati</span>, a Computer Engineering student and aspiring Full Stack Developer passionate about building modern web applications and exploring Artificial Intelligence.
+              Hi, I’m <span className="text-foreground font-medium italic underline decoration-accent/30 decoration-2 underline-offset-4">Dilip Kohar</span>, a Computer Engineering student and aspiring Full Stack Developer passionate about building modern web applications and exploring Artificial Intelligence.
               <br/>
 
               I enjoy turning ideas into real-world projects and creating clean, responsive, and user-friendly digital experiences. I’m continuously improving my skills in web development, problem-solving, and modern technologies while exploring the world of AI and Machine Learning.

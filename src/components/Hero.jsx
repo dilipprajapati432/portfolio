@@ -110,7 +110,7 @@ export const Hero = () => {
 
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground leading-[1.1] tracking-tight">
                 Dilip<br />
-                <span className="gradient-text">Prajapati</span>
+                <span className="gradient-text">Kohar</span>
               </h1>
 
               <TypewriterRoles />
@@ -193,7 +193,7 @@ export const Hero = () => {
                 <div className="w-full h-full rounded-full overflow-hidden relative">
                   <img
                     src="/images/profile-dilip1.jpg"
-                    alt="Dilip Prajapati"
+                    alt="Dilip Kohar"
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
