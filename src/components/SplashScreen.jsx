@@ -92,7 +92,7 @@ export const SplashScreen = ({ onFinish }) => {
               {/* Mask workaround for iOS Safari gradient animation bug */}
               <mask id="d-mask">
                 <motion.path
-                  d="M30 25 V75 C30 75 70 75 70 50 C70 25 30 25 30 25"
+                  d="M18 25 V75 C18 75 58 75 58 50 C58 25 18 25 18 25"
                   fill="transparent"
                   stroke="white"
                   strokeWidth="1.5"
@@ -106,14 +106,14 @@ export const SplashScreen = ({ onFinish }) => {
 
             {/* D (Rendered via Mask to guarantee 60fps on mobile) */}
             <rect 
-              x="25" y="20" width="50" height="60" 
+              x="13" y="20" width="50" height="60" 
               fill="url(#accent-grad)" 
               mask="url(#d-mask)" 
             />
 
             {/* K */}
             <motion.path
-              d="M72 25 V75 M72 50 L95 25 M72 50 L95 75"
+              d="M60 25 V75 M60 50 L83 25 M60 50 L83 75"
               fill="transparent"
               stroke="white"
               strokeWidth="1.5"
