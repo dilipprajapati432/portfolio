@@ -27,8 +27,8 @@ export const SplashScreen = ({ onFinish }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFinished(true);
-      setTimeout(onFinish, 1200);
-    }, 4000);
+      setTimeout(onFinish, 800);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, [onFinish]);
@@ -39,9 +39,9 @@ export const SplashScreen = ({ onFinish }) => {
       pathLength: 1,
       opacity: 1,
       transition: {
-        duration: 2.5,
+        duration: 1.5,
         ease: "easeInOut",
-        delay: 0.5
+        delay: 0.2
       }
     }
   };
@@ -51,7 +51,7 @@ export const SplashScreen = ({ onFinish }) => {
       scale: 1.1,
       opacity: 0,
       filter: "blur(20px)",
-      transition: { duration: 1, ease: "circIn" }
+      transition: { duration: 0.8, ease: "circIn" }
     }
   };
 
@@ -144,7 +144,7 @@ export const SplashScreen = ({ onFinish }) => {
             <motion.h1
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 2.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl md:text-5xl font-serif font-black tracking-tight text-foreground uppercase"
             >
               DILIP <span className="gradient-text">PRAJAPATI</span>
@@ -154,14 +154,14 @@ export const SplashScreen = ({ onFinish }) => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 2.8, duration: 1.5, ease: "easeInOut" }}
+            transition={{ delay: 1.4, duration: 1.0, ease: "easeInOut" }}
             className="h-[1px] w-48 bg-gradient-to-r from-transparent via-accent/50 to-transparent mx-auto"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.2, duration: 0.8 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
             className="text-[10px] font-sans font-bold tracking-[0.6em] text-accent/60 uppercase"
           >
             Digital Experience // 2026
@@ -175,7 +175,7 @@ export const SplashScreen = ({ onFinish }) => {
           <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
-            transition={{ duration: 4, ease: "easeInOut" }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
             className="h-full w-full bg-gradient-to-r from-transparent via-accent to-transparent"
           />
         </div>
@@ -184,7 +184,7 @@ export const SplashScreen = ({ onFinish }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.3 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 0.8 }}
         className="absolute bottom-10 right-10 flex items-center gap-4 text-[10px] font-sans font-bold tracking-widest text-white uppercase"
       >
         <span className="w-2 h-2 rounded-full bg-accent animate-ping" />

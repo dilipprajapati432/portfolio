@@ -184,7 +184,9 @@ export const Hero = () => {
               />
 
               {/* Profile Wrapper */}
-              <div
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 style={{ transform: "translateZ(50px)" }}
                 className="relative z-10 w-full h-full rounded-full glass-card p-2 group cursor-none"
               >
@@ -196,7 +198,7 @@ export const Hero = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
