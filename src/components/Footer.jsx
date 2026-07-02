@@ -45,7 +45,7 @@ export const Footer = () => {
         viewport={{ once: true, margin: "-50px" }}
       >
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-6 mb-6">
-          
+
           {/* Identity & Mission */}
           <motion.div variants={itemVariants} className="max-w-md w-full text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-serif font-black tracking-tight text-foreground uppercase relative inline-block">
@@ -61,35 +61,35 @@ export const Footer = () => {
           {/* Social Links & Action Button Group */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 mt-6 lg:mt-0">
             <div className="flex flex-wrap justify-center sm:justify-start gap-6 sm:gap-10">
-            {[
-              { icon: Github, href: "https://github.com/dilipprajapati432", label: "Github" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293", label: "LinkedIn" },
-              { icon: Twitter, href: "https://x.com/DilipPraja6787", label: "X" },
-              { icon: Facebook, href: "https://www.facebook.com/dilipprajapati516/", label: "Facebook" },
-              { icon: Mail, href: "mailto:dilipkohar4320@gmail.com", label: "Email" }
-            ].map((s, i) => (
-              <a
-                key={i}
-                href={s.href}
-                target="_blank"
-                className="group flex flex-col items-center gap-3 relative"
-              >
-                <span className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/80 group-hover:text-accent transition-colors duration-500 uppercase text-center min-w-[32px]">
-                  {s.label}
-                </span>
-                <div className="relative flex items-center justify-center w-8 h-8">
-                  <div className="w-8 h-8 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center group-hover:bg-accent/10 group-hover:border-accent/30 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-500 z-10">
-                    <s.icon className="w-4 h-4 text-muted-foreground/80 group-hover:text-accent transition-colors duration-500" />
+              {[
+                { icon: Github, href: "https://github.com/dilipprajapati432", label: "Github" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/dilip-kohar-014627293", label: "LinkedIn" },
+                { icon: Twitter, href: "https://x.com/DilipPraja6787", label: "Twitter" },
+                { icon: Facebook, href: "https://www.facebook.com/dilipprajapati516/", label: "Facebook" },
+                { icon: Mail, href: "mailto:dilipkohar4320@gmail.com", label: "Email" }
+              ].map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  className="group flex flex-col items-center gap-3 relative"
+                >
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/80 group-hover:text-accent transition-colors duration-500 uppercase text-center min-w-[32px]">
+                    {s.label}
+                  </span>
+                  <div className="relative flex items-center justify-center w-8 h-8">
+                    <div className="w-8 h-8 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center group-hover:bg-accent/10 group-hover:border-accent/30 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-500 z-10">
+                      <s.icon className="w-4 h-4 text-muted-foreground/80 group-hover:text-accent transition-colors duration-500" />
+                    </div>
+                    <div className="absolute left-full ml-3 h-[1px] w-0 group-hover:w-12 bg-accent/40 transition-all duration-700 ease-out" />
                   </div>
-                  <div className="absolute left-full ml-3 h-[1px] w-0 group-hover:w-12 bg-accent/40 transition-all duration-700 ease-out" />
-                </div>
-              </a>
-            ))}
+                </a>
+              ))}
             </div>
 
             {/* Scroll to Top (Inline with Socials on Desktop) */}
             <div className="hidden sm:block w-[1px] h-8 bg-white/10" />
-            
+
             <motion.button
               onClick={scrollToTop}
               whileHover={{ y: -6, scale: 1.05 }}

@@ -97,7 +97,7 @@ export const Navigation = () => {
             className="text-2xl font-serif font-black flex items-center gap-2 group"
           >
             <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-background text-sm font-sans font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)] group-hover:scale-110 transition-transform">
-              DP
+              DK
             </div>
             <span className="gradient-text tracking-tighter">Dilip</span>
           </a>

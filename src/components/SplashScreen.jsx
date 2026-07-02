@@ -113,7 +113,7 @@ export const SplashScreen = ({ onFinish }) => {
 
             {/* K */}
             <motion.path
-              d="M60 25 V75 M60 50 L83 25 M60 50 L83 75"
+              d="M60 25 V75 M60 50 L85 25 M60 50 L85 75"
               fill="transparent"
               stroke="white"
               strokeWidth="1.5"

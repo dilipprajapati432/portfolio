@@ -28,7 +28,7 @@ const featuredProjects = [
     category: "Communication",
     description: "Real-time chat application using React, Node.js, Express, MongoDB, and Socket.io. Implemented messaging, authentication, and user presence features.",
     tags: ["React", "Node.js", "MongoDB", "Socket.io", "Express"],
-    github: "https://github.com/dilipprajapati432/dilip-kohar-portfolio.git",
+    github: "https://github.com/dilipprajapati432/dilip-prajapati-portfolio.git",
     demo: "https://beatchat.vercel.app",
     image: "/images/beatchat.png",
   },

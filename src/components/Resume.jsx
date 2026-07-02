@@ -54,7 +54,7 @@ export const Resume = () => {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              onClick={() => window.open("/documents/DILIP_KOHAR_RESUME.pdf", "_blank")}
+              onClick={() => window.open("/documents/DILIP_PRAJAPATI_RESUME.pdf", "_blank")}
               className="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 rounded-xl px-8 py-6 gap-3 transition-all"
             >
               <Download className="w-5 h-5 text-accent" />
