@@ -12,7 +12,7 @@ export const About = () => {
     },
     {
       label: "Academic Merit",
-      value: "7.5 CGPA",
+      value: "7.76 CGPA",
       subValue: "PDEU University",
       icon: BadgeCheck,
       accent: "text-accent"

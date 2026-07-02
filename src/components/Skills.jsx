@@ -145,8 +145,8 @@ export const Skills = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { label: "Projects Built", value: "10+", icon: Cpu, desc: "Full-Stack Applications" },
-              { label: "LeetCode & Codeforces Solved", value: "70+", icon: Target, desc: "Algorithmic Challenges", href: "https://leetcode.com/u/dilipkohar4320/" },
-              { label: "Current CGPA", value: "7.5", icon: Brain, desc: "Academic Performance" },
+              { label: "LeetCode & Codeforces Solved", value: "80+", icon: Target, desc: "Algorithmic Challenges", href: "https://leetcode.com/u/dilipkohar4320/" },
+              { label: "Current CGPA", value: "7.76", icon: Brain, desc: "Academic Performance" },
               { label: "Academic Year", value: "Final", icon: Globe, desc: "B.Tech Undergrad" }
             ].map((stat, i) => {
               const CardContent = (

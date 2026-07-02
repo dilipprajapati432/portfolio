@@ -9,7 +9,7 @@ export const Resume = () => {
       institution: "Pandit Deendayal Energy University (PDEU)",
       location: "Gujarat,India",
       duration: "2023 — 2027",
-      grade: "7.5 CGPA",
+      grade: "7.76 CGPA",
     },
     {
       degree: "Higher Secondary Education",
